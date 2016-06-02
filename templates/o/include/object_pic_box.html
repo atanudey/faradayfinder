@@ -1,0 +1,34 @@
+<div class="float_left" style="height:277px;" >
+<div class="eimage">
+    <a id="thumb1'" href="javascript:void(0)" class="highslide" onclick="return hs.expand(this, {captionId: 'caption1'})">  <img src="/media/{{ object.photo }}" class="profile_img" border="0" title="{{ object.name }}" width="280" height="250"/></a>
+    <!--<a id="thumb1'" href="uploads/1930216552_1402021785.jpg" class="highslide" onclick="return hs.expand(this, {captionId: 'caption1'})"><img src="uploads/1930216552_1402021785_276-272.jpg" class="profile_img" border="0" title="click here to enlarge" /></a>-->
+    <!--<a id="thumb2'" href="uploads/1181978033_1402021785.png" class="highslide" onclick="return hs.expand(this, {captionId: 'caption2'})"><img src="uploads/1181978033_1402021785_276-277.png" class="profile_img" border="0" title="click here to enlarge" /></a>-->
+</div>
+</div>
+
+<div class="icon_block">
+    {% if ObjectJoinAccess == 'Visitor'%}
+        <input class="join_event"  type="submit" value="Join {{ ObjectType }}" style="border:0px" onclick="javascript:window.location='/accounts/login/?next=/{{ ObjectType }}/view/{{ object.id }}'">
+    {% elif ObjectJoinAccess %}
+    <form method="post" id="object_join_or_leave" name="object_join_or_leave">
+        {% csrf_token %}
+        <input class="join_event" id="join_event" type="submit" value="{{ ObjectJoinAccess }}" style="border:0px">
+        <input  name="object_type" id="object_type" type="hidden" value="{{ ObjectType }}">
+        <input  name="object_id" id="object_id" type="hidden" value="{{ object.id }}">
+        <input name="type" id="type" type="hidden" value="join">
+    </form>
+    {% endif %}
+
+<!--<a href="#" class=" group_chat">Group Chat</a>-->
+
+    <div style="float: right; width: 100%; margin:5px 0;">
+    <iframe scrolling="no" frameborder="0" allowtransparency="true" style="border:none; overflow:hidden; width:75px; height:21px;" src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffaradayfinder.com%2Fffdev%2Fview-lab%2Fsin-city-laboratories-%2F&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21"></iframe>
+
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://faradayfinder.com/ffdev/view-lab/sin-city-laboratories-/" data-count="horizontal">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+
+    <!-- Place this tag in your head or just before your close body tag -->
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <!-- Place this tag where you want the +1 button to render -->
+    <div class="g-plusone" data-size="medium"></div>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+{% extends "o/base.html" %}
+{% block content %}
+<div id="left_container">
+
+<div class="content_outer">
+
+<div class="entry_title"><h1><span>Contact Us</span></h1>
+<div class="right_contant">
+You must fill the <span>*</span> required fields</div>
+
+</div>
+
+<div class="common_block">
+<!--top corner-->
+<div class="top_corner"><span></span></div>
+<!--top corner-->
+
+<div class="box_mid_container">
+<div class="clear">
+
+<h2>Say Hello !</h2>
+<p>We're always happy to hear from you!<br />
+It is very easy. Fill out the form below and submit it. We will get back to you with an appropriate reply very soon.</p><span class="Redcolor"></span>
+<div class="from">
+<form name="message_form" id="message_form"  action="/ffdev/contact-us" method="post">
+<input type="hidden" name="todo" value="add" />
+<div class="form_content fullwidth">
+<label>First Name<span>*</span></label>
+<input name="firstname" value="" type="text"/></div>
+
+<div class="form_content fullwidth">
+<label>Last Name</label>
+<input name="lastname" value="" type="text"/></div>
+
+<div class="form_content fullwidth">
+<label>Email Address<span>*</span></label>
+<input name="email" value="" type="text" /></div>
+
+<div class="form_content fullwidth">
+<label>Message Subject<span>*</span></label>
+		    <select class="Textinput" style="width:290px;"   name="subject" id="subject">
+			   <option value="General Information" >General Information</option>
+			   <option value="Suggestions & Ideas" >Suggestions & Ideas</option>				   
+			   <option value="For Advertising" >For Advertising</option>
+			   <option value="Legal Inquiries" >Legal Inquiries</option>			   		   
+			</select>
+</div>
+<div class="form_content">
+<label>Message <span>*</span></label>
+<textarea name="message" id="message"  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); cols="" rows=""></textarea>
+<br />
+<input size=1 value=1000  name=text_num style="width:35px; 
+	background: none repeat scroll 0 0 #F5F5F5;
+    border: 1px solid #E1E1E1;
+    color: #8D8C8C;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    font-style: italic;	
+	" readonly="true"  /> <font style="font-size:11px;">  Characters Left</font>
+</div>
+
+
+</form>
+</div>
+
+<a href="javascript:document.message_form.submit();" class="submit_button">Submit</a>
+</div>
+
+
+</div>
+
+<!--bot corner-->
+<div class="bot_corner"><span></span></div>
+<!--bot corner-->
+</div>
+
+</div>
+<!--featured events-->
+</div>
+
+
+{% endblock %}
+
+{% block sidebar %}
+{% include "o/include/right_sidebar_contact_us.html" %}
+{% endblock %}

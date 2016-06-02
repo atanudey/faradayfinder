@@ -1,0 +1,74 @@
+{% extends "base_inner.html" %}
+{% block content %}
+<!-- Middle content start here -->
+<div class="container">
+  <div class="row">
+    <div class="login_left col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="login-heading">
+            <h1>My Account</h1>
+          </div>
+        </div>
+       {% include 'common/dashboard_menu.html' %}
+      </div>
+      <div class="login_sec">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="my_profile my_ac_text col-md-4 col-sm-4 ">
+              {% include 'common/dashboard_left_sidebar.html' %}
+            </div>
+            <div class="col-md-8 col-sm-8 pull-right">
+              <div class="event_heading">
+                <h2>Equipments Board</h2>
+                {% if flush_message %}
+                    <div class="alert alert-success" role="alert">{{ flush_message }}</div>
+                {% endif %}
+              </div>
+              <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active"><a href="#my_equipments" aria-controls="my_equipments" role="tab" data-toggle="tab">Equipment created by me</a></li>
+                  <li role="presentation"><a href="#equipments_joined" aria-controls="equipments_joined" role="tab" data-toggle="tab">Equipment I have joined</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="my_equipments">
+                  {% if equipments %}
+                      {% for equipment in equipments %}
+                        <div class="row tab-bottom-sap">
+                          <div class="col-md-3 col-sm-3 col-xs-3 thumb-sml">
+                              {% if equipment.photo %}
+                              <img src="/media/{{ equipment.photo }}" alt="{{ equipment.name }}" title="{{ equipment.name }}" class="img-thumbnail">
+                              {% else %}
+                                  <div style="background-color: #cccccc; height: 150px; weight:150px" title="{{ equipment.name }}"></div>
+                              {% endif %}
+                          </div>
+                          <div class="col-md-9 col-sm-9 col-xs-9 tab-text">
+                            <h2>{{ equipment.name }}</h2>
+                            {%  if equipment.lab.name  %}
+                            <p>Lab- {{ equipment.lab.name }}</p>
+                            {% endif %}
+                            <p>{{ equipment.description|truncatewords:80 }}</p>
+                            <button type="button" class="btn btn-primary btn-xs" onclick="javascript:window.location='/equipment/view/{{ equipment.id }}'">View Equipment</button>
+                            <button type="button" class="btn btn-success btn-xs" onclick="javascript:window.location='/equipment/edit/{{ equipment.id }}'">Edit Equipment</button>
+                          </div>
+                        </div>
+                      {% endfor %}
+                   {% else %}
+                      <p>You have not created any equipment yet.</p>
+                  {% endif %}
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="equipments_joined">
+                      You have not joined any equipment yet.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

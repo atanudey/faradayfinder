@@ -1,0 +1,323 @@
+{% extends "o/base.html" %}
+{% block content %}
+<div class="content_outer">
+
+<div class="entry_title"><h1><span>Update Lab</span></h1>
+
+
+</div>
+
+
+<div class="common_block">
+<!--top corner-->
+ <div class="top_corner"><span></span></div>
+<!--top corner-->
+
+<div class="box_mid_container">
+<div class="clear">
+{% include "o/include/left_sidebar.html" %}
+
+
+<div class="pic_right_block">
+<div class=" tab">
+
+   {% include "o/include/dashboard_menu.html" %}
+</div>
+
+
+
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+
+  <div class="info_block">
+
+<h1>Update Lab</h1>
+
+
+<!--row-->
+<div class="from_block">
+
+<div class="Redcolor" style="padding-left:13px;">
+    {% if form.errors %}
+        {{ form.errors }}
+        {% endif %}
+</div>
+<div class="from_action">
+<label>Lab Name<strong>*</strong></label>
+    {{ form.name }}
+</div>
+</div>
+<!--row-->
+
+<!--row-->
+<div class=" from_block">
+
+<div class="from_action">
+<label>Institution<strong>*</strong></label>
+{{ form.institute }}
+</div>
+
+<div class="from_action">
+<label>Department<strong>*</strong></label>
+<div id="department_block">
+{% if departments %}
+    <select name="department" id="id_department" class="input_bg">
+    <option value="">---------</option>
+        {% for department_option in departments %}
+            <option value="{{ department_option.id }}" {% ifequal department_option.id  department %} selected="selected"{% endifequal %}>{{ department_option.name }}</option>
+        {% endfor %}
+    </select>
+{% else %}
+    {{ form.department }}
+{% endif %}
+</div>
+</div>
+
+
+<div style="float:left; margin-top:10px" >
+<label style="padding-left:10px;">Lab&nbsp;&nbsp;Image/Photo(s)<strong>*</strong></label>
+    <div class="from_action" style="margin-right:80px;">
+         {{ form.photo }}
+    </div>
+
+</div>
+
+</div>
+
+<div class=" from_block">
+
+
+<div class="from_action">
+<label>Primary website URL </label>
+{{ form.primary_url }}
+<span>eg. http://www.example.com</span>
+</div>
+
+<div class="from_action">
+<label>Primary Twitter account URL</label>
+{{ form.primary_twitter }}
+<span>eg. http://www.twitter.com/ACCOUNT-NAME</span>
+</div>
+</div>
+<!--row-->
+
+
+<!--row-->
+<div class=" from_block">
+
+<div class="from_action">
+<label>Do you want to make lab Password Protected?</label>
+
+{{ form.is_private }}
+
+</div>
+
+<div class="from_action" id="display_password_protected" style="display: {% if display_password_protected %}block{% else %}none{% endif %}">
+<label>Password</label>
+{{ form.password }}
+</div>
+</div>
+<!--row-->
+</div>
+
+  <div class="info_block">
+
+<h1>Address Information</h1>
+
+
+<!--row-->
+<div class="from_block">
+
+
+<div class="from_action widht100">
+<label>Lab Address <strong>*</strong></label>
+{{ form.address }}
+</div>
+
+</div>
+
+<div class="from_block">
+
+<div class="from_action">
+<label>City<strong>*</strong></label>
+{{ form.city }}
+</div>
+
+<div class="from_action">
+<label>State<strong>*</strong></label>
+{{ form.state }}
+</div>
+
+
+
+
+</div>
+<!--row-->
+
+
+<!--row-->
+<div class="from_block">
+
+
+<div class="from_action">
+<label>Country<strong>*</strong></label>
+{{ form.country }}
+</div>
+
+<div class="from_action">
+<label>Zip Code<strong>*</strong></label>
+{{ form.zipcode }}
+</div>
+
+
+</div>
+
+
+</div>
+
+  <div class="info_block">
+
+<h1>About Lab</h1>
+
+<div class="from_block">
+
+
+<div class="from_action widht100">
+
+<div class="clear">
+		{{ form.description }}</div>
+<span>You can enter maximum 1500 character</span>
+</div>
+
+
+</div>
+<!--row-->
+
+</div>
+
+  <div class="info_block">
+
+<h1>SEO Meta Information</h1>
+
+
+<div class="from_block">
+
+
+<div class="from_action">
+<label>Keywords</label>
+ {{ form.meta_keyword }}
+</div>
+
+<div class="from_action">
+<label>Abstract</label>
+{{ form.meta_abstract }}
+</div>
+
+
+<div class="from_action">
+<label>Description</label>
+{{ form.meta_description }}
+</div>
+
+</div>
+
+</div>
+
+<div class="info_block">
+
+<h1>Contact Information</h1>
+
+<div class="from_block">
+
+
+<div class="from_action">
+<label>Facebook</label>
+{{ form.facebook }}
+<span>eg. http://www.facebook.com/ACCOUNT-NAME</span>
+</div>
+
+
+<div class="from_action">
+<label>Twitter </label>
+{{ form.twitter }}
+<span>eg. http://www.twitter.com/ACCOUNT-NAME</span>
+</div>
+
+</div>
+
+
+<div class="from_block">
+
+
+<div class="from_action">
+<label>Email</label>
+{{ form.email }}
+</div>
+
+<div class="from_action">
+<label>LinkedIn  </label>
+{{ form.linkedin }}
+<span>eg. http://www.linkedin.com/ACCOUNT-NAME</span>
+</div>
+
+</div>
+
+<div class="from_block">
+<div class="from_action">
+<label>Skype</label>
+{{ form.skype }}
+</div>
+
+<div class="from_action">
+<label>Phone </label>
+{{ form.phone }}
+</div>
+
+</div>
+
+</div>
+
+  <div class="info_block">
+
+<h1>Lab Paypal Account Information</h1>
+
+<div class="from_block">
+
+
+<div class="from_action">
+<label>Lab Paypal Id </label>
+ {{ form.paypal_account }}
+</div>
+
+</div>
+
+</div>
+
+<div class="clear">
+
+<p class="helptext">{{ form.tnc }}I have read and accept <a href="/terms-and-conditions/"  target="_blank">Terms &amp; Conditions</a> and<a href="/privacy-and-policy/" target="_blank"> Privacy Policy</a></p>
+</div>
+
+<div class="common_block pad_t15">
+
+
+<input type="submit" class="bluebutton" name="submit" value="Update Lab" style="width:150px;"/>
+<input type="button" class="cancel_but" value="Cancel"   href="javascript:void(0);" onclick="clearForm(document.add_lab);" />
+
+
+</div>
+
+</form>
+
+</div>
+</div>
+</div>
+<!--bot corner-->
+<div class="bot_corner"><span></span></div>
+<!--bot corner-->
+</div>
+
+</div>
+<!--featured events-->
+{% endblock %}
+{% block sidebar %}{% endblock %}

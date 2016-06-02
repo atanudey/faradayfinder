@@ -1,0 +1,64 @@
+<div class="pic_right_box">
+<h2>{{ object.name }}</h2>
+
+<div class="member_detail">
+<p>Created By:	</p>
+<span><a href="#">{{ object.user.first_name }} {{ object.user.last_name }}</a></span>
+<span style="float:right; width:285px;">
+	</span>
+</div>
+
+<div class="member_detail">
+<p>Group Size:	</p>
+<span>1 Member <a href="" onclick="ajxpage('ajax/ajx_lab_member.php?lab_id=5','common_lab_page','fade','');lab_toggle_class(10);">(view)</a></span>
+</div>
+
+<div class="member_detail">
+<p>Location:</p>
+<span>
+{{ object.address}}, {{ object.city}}, {{ object.state }}, {{ object.country }}-{{ object.zipcode}}
+    &nbsp;<a href="javascript:void(0);" onclick="jQuery('#map_dialog').dialog( 'open' );">(view map)</a>
+</span>
+</div>
+
+{% if object.primary_url %}
+<div class="member_detail">
+<p>Web Address:</p>
+<span><a href="{{ object.primary_url }}" target="_blank">{{ object.primary_url }}</a></span>
+</div>
+{% endif %}
+
+{% if object.facebook or object.twitter or object.email or object.linkedin or object.skype %}
+<div class="member_detail">
+    <p>Connect with us:</p>
+    <div class="Sociallink">
+        {% if object.facebook %}
+            <a class="Flink" target="_blank" href="{{ object.facebook }}"> </a>
+        {% endif %}
+        {% if object.twitter %}
+            <a class="Twilink" target="_blank" href="{{ object.twitter }}"> </a>
+        {% endif %}
+        {% if object.email %}
+            <a class="Maillink" target="_blank" href="mailto:{{ object.email }}"> </a>
+        {% endif %}
+        {% if object.linkedin %}
+            <a class="Linklink" target="_blank" href="{{ object.linkedin }}"> </a>
+        {% endif %}
+        {% if object.skype %}
+            <a class="Skypelink" target="_blank" href="skype:{{ object.skype }}?call"> </a>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+
+
+{% if object.description %}
+<div class="About_event description">
+<h2 style="background:none; margin:0; padding:0;">About {{ ObjectType }}</h2>
+<div id="show_less">
+	<p>{{ object.description }}</p></div>
+<div id="show_more" style="display:none;"><p>&nbsp;testing 123...&nbsp;</p></div>
+</div>
+{% endif %}
+
+</div>

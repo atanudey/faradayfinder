@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Login" />
+<meta name="abstract" content="Login" />
+<meta name="description" content="Login" />
+<title>Faraday Finder&bull; see the unseen,find the unfound :: Login</title>
+<link href='/static/images/favicon.ico' rel='shortcut icon' type='image/x-icon/'>
+<link href="/static/style/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/static/style/developer.css" rel="stylesheet" type="text/css" media="all" />
+<!--
+<link href="http://jquery-chat.net/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" media="all" />
+-->
+
+<!-- <link href="/static/jquery-chat/jquery-ui-themes-1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" media="all" />  -->
+<link href="/static/jquery-chat/jquery-ui-themes-1.10.4/themes/cupertino/jquery-ui.min.css" rel="stylesheet" type="text/css" media="all" />
+
+<link href="/static/style/iconset.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/static/style/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
+<script src='/static/jquery-chat/js/jquery-1.11.3.min.js'></script>
+<script src='/static/jquery-chat/js/jquery-ui-1.10.4.custom.min.js'></script>
+<script type="text/javascript" src="/static/jscript/ajax.js"></script>
+<script type="text/javascript" src="/static/jscript/php.default.min.js"></script>
+<script type="text/javascript" src="/static/jscript/general.fnc.js"></script>
+<script type="text/javascript" src="/static/jscript/faraday.fnc.js"></script>
+<script type="text/javascript" src="/static/jscript/slideshow.js"></script>
+<script type="text/javascript" src="/static/jscript/jquery.tokeninput.js"></script>
+<link rel="stylesheet" href="/static/style/token-input.css" type="text/css" />
+<link rel="stylesheet" href="/static/style/token-input-facebook.css" type="text/css" />
+
+{% if user.is_authenticated %}
+<!-- Resources for jquery-chat -->
+<!-- Bootstrap 3.3.4 
+<link href="/static/jquery-chat/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<!-- Theme style -->
+<link href="/static/jquery-chat/templates/AdminLTE/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+
+<link id='theme' rel='stylesheet' />
+<link rel='stylesheet' href='/static/jquery-chat/css/tipsy.css' />
+<link rel='stylesheet' href='/static/jquery-chat/css/chat.css' />
+<script src='http://61.95.196.142:3000/socket.io/socket.io.js'></script>
+<script src='/static/jquery-chat/js/jquery.slimscroll.min.js'></script>
+<script src='/static/jquery-chat/js/jquery.tipsy.js'></script>
+<script src='/static/jquery-chat/js/jquery.main.js'></script>
+<script src='/static/jquery-chat/config.js'></script>
+<script src='/static/jquery-chat/i18n_en.js'></script>
+{% endif %}
+
+</head>
+<body>
+<div class=" main_page">
+{% block header %}
+    {% include 'o/include/header.html' %}
+{% endblock %}
+<!--midder container-->
+<div class="midder_content">
+{% block content %}{% endblock %}
+{% block sidebar %}{% include "o/include/right_sidebar.html" %}{% endblock %}
+</div>
+<!--midder container-->
+
+{% if user.is_authenticated %}
+<div style="display:none">
+	<div id="user_name">{{user.get_full_name}}</div>
+	<div id="user_email">{{user.get_email}}</div>
+	<div id="user_id">{{user.id}}</div>
+	{% if user.photo %}
+    	<div id="sender_photo">/media/{{ user.photo }}</div>
+	{% else %}
+	    <div id="sender_photo">/static/images/no-chat-image.png</div>
+	{% endif %}	
+	<div id="in_conversation">{{request.session.in_conversation}}</div>
+</div>
+{% endif %}
+
+{% block footer %}{% include 'o/include/footer.html' %}{% endblock %}
+</div>
+
+<script type="text/javascript">
+    loader = '<img src="/static/images/loader.gif" alt="Loading...." title="Loading..." height="30">'
+    btn_submit = '<input type="submit" value="Submit" class="bluebutton" />'
+    $(document).ready(function() {
+        $('#signup_request').submit(function() {
+             $.ajax({
+                 data: $(this).serialize(), // get the form data
+                 type: 'POST',
+                 dataType: "json",
+                 url: '/accounts/signup/', // the file to call
+                 success: function(response) {
+                     if(response.result == true){
+                         $("#success_message").show()
+                         $("#success_message").html(response.message)
+                         $('#signup_request')[0].reset();
+                     }
+                     $("#btn_submit").html(btn_submit)
+                 },
+                 error: function(response) {
+                     if(response.status == 400){
+                         Object.keys($.parseJSON(response.responseText)).forEach(function(key){
+                             // $("#error_" + key).show().html($.parseJSON(response.responseText)[key])
+                             $("#error_" + key).show().html(key + ": " + $.parseJSON(response.responseText)[key] + "<br />")
+                             $("#id_" + key).css("border-color", "red")
+                         })
+                     }
+                     $("#btn_submit").html(btn_submit)
+                 },
+                 beforeSend: function (){
+                    form_fields = ['email', 'first_name', 'last_name',
+                        'password', 'confirm_password', 'zipcode', 'tnc']
+                    for(i=0; i < form_fields.length; i++){
+                        $("#error_" + form_fields[i]).hide()
+                        $("#id_" + form_fields[i]).css("border-color", "")
+                    }
+                    $("#btn_submit").html(loader)
+                    $("#success_message").hide()
+                 }
+             });
+             return false;
+         });
+
+        $('#login_request').submit(function() {
+             $.ajax({
+                 data: $(this).serialize(), // get the form data
+                 type: 'POST',
+                 dataType: "json",
+                 url: '/accounts/login/', // the file to call
+                 success: function(response) {
+                     if(response.result == true){
+                         window.location = response.next_page
+                     }
+                     $("#btn_submit").html(btn_submit)
+                 },
+                 error: function(response) {
+                     console.log(response.status)
+                     if(response.status == 400){
+                         json_response = $.parseJSON(response.responseText)
+                         console.log(json_response)
+                         Object.keys(json_response).forEach(function(key){
+                             $("#error_" + key).show().html(key + ": " + json_response[key] + "<br />")
+                             $("#id_" + key).css("border-color", "red")
+                         })
+                         console.log(json_response['message'])
+                         if(json_response['message'])
+                             $("#flush_message").show().html(json_response['message']).addClass("label label-danger")
+                     }
+                     console.log(btn_submit)
+                     $("#btn_submit").html(btn_submit)
+                 },
+                 beforeSend: function (){
+                    form_fields = ['email', 'password']
+                    for(i=0; i < form_fields.length; i++){
+                        $("#error_" + form_fields[i]).hide()
+                        $("#id_" + form_fields[i]).css("border-color", "")
+                    }
+                    $("#btn_submit").html(loader)
+                    $("#flush_message").hide()
+                 }
+             });
+             return false;
+         });
+
+        $('#forgot_password_request').submit(function() {
+             $.ajax({
+                 data: $(this).serialize(), // get the form data
+                 type: 'POST',
+                 dataType: "json",
+                 url: '/accounts/forgot-password/', // the file to call
+                 success: function(response) {
+                     if(response.result == true){
+                         $("#flush_message").show().html(response.message)
+                         $('#forgot_password_request')[0].reset();
+                     }
+                     $("#btn_submit").html(btn_submit)
+                 },
+                 error: function(response) {
+                     if(response.status == 400){
+                         json_response = $.parseJSON(response.responseText)
+                         Object.keys(json_response).forEach(function(key){
+                             $("#error_" + key).show().html(json_response[key])
+                             $("#id_" + key).css("border-color", "red")
+                         })
+                         if(json_response['message'])
+                             $("#flush_message").show().html(json_response['message'])
+                     }
+                     $("#btn_submit").html(btn_submit)
+                 },
+                 beforeSend: function (){
+                    form_fields = ['email', 'password']
+                    for(i=0; i < form_fields.length; i++){
+                        $("#error_" + form_fields[i]).hide()
+                        $("#id_" + form_fields[i]).css("border-color", "")
+                    }
+                    $("#btn_submit").html(loader)
+                    $("#flush_message").hide()
+                 }
+             });
+             return false;
+        });
+
+        $('#forgot_password_reset').submit(function() {
+             $.ajax({
+                 data: $(this).serialize(), // get the form data
+                 type: 'POST',
+                 dataType: "json",
+                 success: function(response) {
+                     if(response.result == true){
+                         window.location = response.next_page
+                     }
+                 },
+                 error: function(response) {
+                     if(response.status == 400){
+                         json_response = $.parseJSON(response.responseText)
+                         Object.keys(json_response).forEach(function(key){
+                             $("#error_" + key).show().html(key + ": " + json_response[key] + "<br />")
+                             $("#id_" + key).css("border-color", "red")
+                         })
+                         if(json_response['message'])
+                             $("#flush_message").show().html(json_response['message'])
+                     }
+                     $("#btn_submit").html(btn_submit)
+                 },
+                 beforeSend: function (){
+                    form_fields = ['password', 'confirm_password']
+                    for(i=0; i < form_fields.length; i++){
+                        $("#error_" + form_fields[i]).hide()
+                        $("#id_" + form_fields[i]).css("border-color", "")
+                    }
+                    $("#btn_submit").html(loader)
+                    $("#flush_message").hide()
+                 }
+             });
+             return false;
+         });
+
+        $('#form_edit_profile').submit(function() {
+             $.ajax({
+                 data: $(this).serialize(), // get the form data
+                 type: 'POST',
+                 dataType: "json",
+                 url: '/accounts/edit-profile/', // the file to call
+                 success: function(response) {
+                     if(response.result == true){
+                         $("#flush_message").show().html(response.message)
+                     }
+                     $("#btn_edit_profile_submit").html(btn_submit)
+                 },
+                 error: function(response) {
+                     if(response.status == 400){
+                         json_response = $.parseJSON(response.responseText)
+                         Object.keys(json_response).forEach(function(key){
+                             // $("#error_" + key).show().html(json_response[key])
+                             $("#error_" + key).show().html(key + ": " + $.parseJSON(response.responseText)[key] + "<br />")
+                             $("#id_" + key).css("border-color", "red")
+                         })
+                         if(json_response['message'])
+                             $("#flush_message").show().html(json_response['message']).addClass("label label-danger")
+                     }
+                     $("#btn_edit_profile_submit").html(btn_submit)
+                 },
+                 beforeSend: function (){
+                    $("#flush_message").hide()
+                    form_fields = ['first_name', 'last_name', 'dob', 'address', 'city', 'state', 'country', 'zipcode', 'about_me']
+                    for(i=0; i < form_fields.length; i++){
+                        $("#error_" + form_fields[i]).hide()
+                        $("#id_" + form_fields[i]).css("border-color", "")
+                    }
+                    $("#btn_edit_profile_submit").html(loader)
+                 }
+             });
+             return false;
+        });
+
+        $('#form_edit_network').submit(function() {
+             $.ajax({
+                 data: $(this).serialize(), // get the form data
+                 type: 'POST',
+                 dataType: "json",
+                 url: '/accounts/edit-profile/', // the file to call
+                 success: function(response) {
+                     if(response.result == true){
+                         $("#flush_message_network").show().html(response.message)
+                     }
+                     $("#btn_edit_network_submit").html(btn_submit)
+                 },
+                 error: function(response) {
+                     $("#flush_message_network").hide()
+                     if(response.status == 400){
+                         json_response = $.parseJSON(response.responseText)
+                         Object.keys(json_response).forEach(function(key){
+                             $("#error_" + key).show().html(json_response[key])
+                             $("#id_" + key).css("border-color", "red")
+                         })
+                         if(json_response['message'])
+                             $("#flush_message_network").show().html(json_response['message']).addClass("label label-danger")
+                     }
+                     $("#btn_edit_network_submit").html(btn_submit)
+                 },
+                 beforeSend: function (){
+                    $("#flush_message_network").hide()
+                    form_fields = ['is_phone_public', 'phone', 'is_facebook_public', 'facebook',
+                                   'is_linkedin_public', 'linkedin', 'is_skype_public', 'skype',
+                                   'is_twitter_public', 'twitter', 'is_aim_public', 'aim']
+                    for(i=0; i < form_fields.length; i++){
+                        $("#error_" + form_fields[i]).hide()
+                        $("#id_" + form_fields[i]).css("border-color", "")
+                    }
+                    $("#btn_edit_network_submit").html(loader)
+                 }
+             });
+             return false;
+        });
+
+        $("#form_change_password").submit(function(){
+            $.ajax({
+                data: $(this).serialize(), // get the form data
+                type: 'POST',
+                dataType: "json",
+                url: '/accounts/change-password/', // the file to call
+                success: function(response) {
+                     if(response.result == true){
+                         $("#flush_password").show().html(response.message).addClass("label label-success")
+                         $("#password").val("")
+                         $("#new_password").val("")
+                         $("#confirm_new_password").val("")
+                     }
+                     $("#btn_change_password_submit").html(btn_submit)
+                },
+                error: function(response) {
+                     $("#flush_password").hide()
+                     if(response.status == 400){
+                         json_response = $.parseJSON(response.responseText)
+                         Object.keys(json_response).forEach(function(key){
+                             // $("#error_" + key).show().html(json_response[key])
+                             $("#error_" + key).show().html(key + ": " + $.parseJSON(response.responseText)[key] + "<br />")
+                             $("#id_" + key).css("border-color", "red")
+                         })
+                         if(json_response['message'])
+                             $("#flush_password").show().html(json_response['message']).addClass("label label-danger")
+                     }
+                     $("#btn_change_password_submit").html(btn_submit)
+                },
+                beforeSend: function (){
+                    $("#flush_password").hide()
+                    form_fields = ['password', 'new_password', 'confirm_new_password']
+                    for(i=0; i < form_fields.length; i++){
+                        $("#error_" + form_fields[i]).hide()
+                        $("#id_" + form_fields[i]).css("border-color", "")
+                    }
+                    $("#btn_change_password_submit").html(loader)
+                }
+            });
+            return false;
+        })
+
+        $("#object_password_check").submit(function(){
+            object_type = $('#object_type').val()
+            object_id = $('#object_id').val()
+            url = '/' + object_type + '/view/' + object_id
+            $.ajax({
+                data: $(this).serialize(), // get the form data
+                type: 'POST',
+                dataType: "json",
+                url: url, // the file to call
+                success: function(response) {
+                     if(response.access == true){
+                        window.location = url
+                     }else{
+                        $('#flush_message').html('Please enter a valid password')
+                     }
+                     $("#btn_submit_object_verify").html(btn_submit)
+                },
+                beforeSend: function (){
+                    $("#btn_submit_object_verify").html(loader)
+                }
+            });
+            return false;
+        })
+
+        $("#object_join_or_leave").submit(function(){
+            object_type = $('#object_type').val()
+            object_id = $('#object_id').val()
+            url = '/' + object_type + '/view/' + object_id
+            $.ajax({
+                data: $(this).serialize(), // get the form data
+                type: 'POST',
+                dataType: "json",
+                url: url, // the file to call
+                success: function(response) {
+                     if(response.access == true){
+                        $("#join_event").attr('value', response.type);
+                     }
+                }
+            });
+            return false;
+        })
+
+        $("#id_institute").change(function(){
+            institute_id = $("#id_institute").val()
+            if(!institute_id) institute_id = 0
+            $.ajax({
+                data: $(this).serialize(),
+                type: "GET",
+                dataType: "json",
+                url: "/labs/get_departments/" + institute_id + "/",
+                success: function(response) {
+                    var mySelect = $('#id_department');
+                    $('#id_department').empty();
+                    mySelect.append(
+                        $('<option></option>').val(0).html('---------')
+                    );
+
+                    $.each(response, function(val, text) {
+                        console.log(text.id + text.name)
+                        mySelect.append(
+                            $('<option></option>').val(text.id).html(text.name)
+                        );
+                    });
+                }
+            })
+        })
+
+        $("#id_is_private").change(function(){
+            id_is_private = $("#id_is_private").val()
+            if(id_is_private == 'True'){
+                $("#display_password_protected").show()
+            }else{
+                $("#display_password_protected").hide()
+            }
+        })
+
+        //$('#datetimepicker').datetimepicker();
+
+        $( "#joinlab:ui-dialog" ).dialog( "destroy" );
+        $( "#joinlab" ).dialog({
+            autoOpen: false,height: 185,width: 400,modal: true,show: 'slide',stack: false,overlay:{ opacity: 0.7,background: "red" }
+        });
+        $( "#leavelab:ui-dialog" ).dialog( "destroy" );
+        $( "#leavelab" ).dialog({
+            autoOpen: false,height: 185,width: 400,modal: true,show: 'slide',stack: false,overlay:{ opacity: 0.7,background: "red" }
+        });
+    });
+</script>
+
+</body>
+</html>

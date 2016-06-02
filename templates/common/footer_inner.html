@@ -1,0 +1,324 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="foot_links col-md-12">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about-us/">About us</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Labs</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Discussion Board</a></li>
+          <li><a href="/terms-and-conditions/">Terms and Conditions</a></li>
+          <li><a href="/privacy-and-policy/">Privacy and Policy</a></li>
+        </ul>
+      </div>
+      <div class="copyright col-md-12"> <span>&copy; 2015 Farady Finder All Right Reserved</span> </div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">
+    loader = '<img src="/static/images/loader.gif" alt="Loading...." title="Loading..." height="15">'
+    btn_submit = '<button type="submit" class="btn btn-success">Submit</button>'
+    $(document).ready(function() {
+        $('#signup_request').submit(function() {
+             $.ajax({
+                 data: $(this).serialize(), // get the form data
+                 type: 'POST',
+                 dataType: "json",
+                 url: '/accounts/signup/', // the file to call
+                 success: function(response) {
+                     if(response.result == true){
+                         $("#success_message").show()
+                         $("#success_message").html(response.message)
+                         $('#signup_request')[0].reset();
+                     }
+                     $("#btn_submit").html(btn_submit)
+                 },
+                 error: function(response) {
+                     if(response.status == 400){
+                         Object.keys($.parseJSON(response.responseText)).forEach(function(key){
+                             $("#error_" + key).show().html($.parseJSON(response.responseText)[key])
+                             $("#id_" + key).css("border-color", "red")
+                         })
+                     }
+                     $("#btn_submit").html(btn_submit)
+                 },
+                 beforeSend: function (){
+                    form_fields = ['email', 'first_name', 'last_name',
+                        'password', 'confirm_password', 'zipcode', 'tnc']
+                    for(i=0; i < form_fields.length; i++){
+                        $("#error_" + form_fields[i]).hide()
+                        $("#id_" + form_fields[i]).css("border-color", "")
+                    }
+                    $("#btn_submit").html(loader)
+                    $("#success_message").hide()
+                 }
+             });
+             return false;
+         });
+
+        $('#login_request').submit(function() {
+             $.ajax({
+                 data: $(this).serialize(), // get the form data
+                 type: 'POST',
+                 dataType: "json",
+                 url: '/accounts/login/', // the file to call
+                 success: function(response) {
+                     if(response.result == true){
+                         window.location = response.next_page
+                     }
+                     $("#btn_submit").html(btn_submit)
+                 },
+                 error: function(response) {
+                     if(response.status == 400){
+                         json_response = $.parseJSON(response.responseText)
+                         Object.keys(json_response).forEach(function(key){
+                             $("#error_" + key).show().html(json_response[key])
+                             $("#id_" + key).css("border-color", "red")
+                         })
+                         if(json_response['message'])
+                             $("#flush_message").show().html(json_response['message']).addClass("label label-danger")
+                     }
+                     $("#btn_submit").html(btn_submit)
+                 },
+                 beforeSend: function (){
+                    form_fields = ['email', 'password']
+                    for(i=0; i < form_fields.length; i++){
+                        $("#error_" + form_fields[i]).hide()
+                        $("#id_" + form_fields[i]).css("border-color", "")
+                    }
+                    $("#btn_submit").html(loader)
+                    $("#flush_message").hide()
+                 }
+             });
+             return false;
+         });
+
+        $('#forgot_password_request').submit(function() {
+             $.ajax({
+                 data: $(this).serialize(), // get the form data
+                 type: 'POST',
+                 dataType: "json",
+                 url: '/accounts/forgot-password/', // the file to call
+                 success: function(response) {
+                     if(response.result == true){
+                         $("#flush_message").show().html(response.message)
+                         $('#forgot_password_request')[0].reset();
+                     }
+                     $("#btn_submit").html(btn_submit)
+                 },
+                 error: function(response) {
+                     if(response.status == 400){
+                         json_response = $.parseJSON(response.responseText)
+                         Object.keys(json_response).forEach(function(key){
+                             $("#error_" + key).show().html(json_response[key])
+                             $("#id_" + key).css("border-color", "red")
+                         })
+                         if(json_response['message'])
+                             $("#flush_message").show().html(json_response['message'])
+                     }
+                     $("#btn_submit").html(btn_submit)
+                 },
+                 beforeSend: function (){
+                    form_fields = ['email', 'password']
+                    for(i=0; i < form_fields.length; i++){
+                        $("#error_" + form_fields[i]).hide()
+                        $("#id_" + form_fields[i]).css("border-color", "")
+                    }
+                    $("#btn_submit").html(loader)
+                    $("#flush_message").hide()
+                 }
+             });
+             return false;
+        });
+
+        $('#forgot_password_reset').submit(function() {
+             $.ajax({
+                 data: $(this).serialize(), // get the form data
+                 type: 'POST',
+                 dataType: "json",
+                 success: function(response) {
+                     if(response.result == true){
+                         window.location = response.next_page
+                     }
+                 },
+                 error: function(response) {
+                     if(response.status == 400){
+                         json_response = $.parseJSON(response.responseText)
+                         Object.keys(json_response).forEach(function(key){
+                             $("#error_" + key).show().html(json_response[key])
+                             $("#id_" + key).css("border-color", "red")
+                         })
+                         if(json_response['message'])
+                             $("#flush_message").show().html(json_response['message'])
+                     }
+                     $("#btn_submit").html(btn_submit)
+                 },
+                 beforeSend: function (){
+                    form_fields = ['password', 'confirm_password']
+                    for(i=0; i < form_fields.length; i++){
+                        $("#error_" + form_fields[i]).hide()
+                        $("#id_" + form_fields[i]).css("border-color", "")
+                    }
+                    $("#btn_submit").html(loader)
+                    $("#flush_message").hide()
+                 }
+             });
+             return false;
+         });
+
+        $('#form_edit_profile').submit(function() {
+             $.ajax({
+                 data: $(this).serialize(), // get the form data
+                 type: 'POST',
+                 dataType: "json",
+                 url: '/accounts/edit-profile/', // the file to call
+                 success: function(response) {
+                     if(response.result == true){
+                         $("#flush_message").show().html(response.message)
+                     }
+                     $("#btn_edit_profile_submit").html(btn_submit)
+                 },
+                 error: function(response) {
+                     if(response.status == 400){
+                         json_response = $.parseJSON(response.responseText)
+                         Object.keys(json_response).forEach(function(key){
+                             $("#error_" + key).show().html(json_response[key])
+                             $("#id_" + key).css("border-color", "red")
+                         })
+                         if(json_response['message'])
+                             $("#flush_message").show().html(json_response['message']).addClass("label label-danger")
+                     }
+                     $("#btn_edit_profile_submit").html(btn_submit)
+                 },
+                 beforeSend: function (){
+                    $("#flush_message").hide()
+                    form_fields = ['first_name', 'last_name', 'dob', 'address', 'city', 'state', 'country', 'zipcode', 'about_me']
+                    for(i=0; i < form_fields.length; i++){
+                        $("#error_" + form_fields[i]).hide()
+                        $("#id_" + form_fields[i]).css("border-color", "")
+                    }
+                    $("#btn_edit_profile_submit").html(loader)
+                 }
+             });
+             return false;
+        });
+
+        $('#form_edit_network').submit(function() {
+             $.ajax({
+                 data: $(this).serialize(), // get the form data
+                 type: 'POST',
+                 dataType: "json",
+                 url: '/accounts/edit-profile/', // the file to call
+                 success: function(response) {
+                     if(response.result == true){
+                         $("#flush_message_network").show().html(response.message)
+                     }
+                     $("#btn_edit_network_submit").html(btn_submit)
+                 },
+                 error: function(response) {
+                     $("#flush_message_network").hide()
+                     if(response.status == 400){
+                         json_response = $.parseJSON(response.responseText)
+                         Object.keys(json_response).forEach(function(key){
+                             $("#error_" + key).show().html(json_response[key])
+                             $("#id_" + key).css("border-color", "red")
+                         })
+                         if(json_response['message'])
+                             $("#flush_message_network").show().html(json_response['message']).addClass("label label-danger")
+                     }
+                     $("#btn_edit_network_submit").html(btn_submit)
+                 },
+                 beforeSend: function (){
+                    $("#flush_message_network").hide()
+                    form_fields = ['is_phone_public', 'phone', 'is_facebook_public', 'facebook',
+                                   'is_linkedin_public', 'linkedin', 'is_skype_public', 'skype',
+                                   'is_twitter_public', 'twitter', 'is_aim_public', 'aim']
+                    for(i=0; i < form_fields.length; i++){
+                        $("#error_" + form_fields[i]).hide()
+                        $("#id_" + form_fields[i]).css("border-color", "")
+                    }
+                    $("#btn_edit_network_submit").html(loader)
+                 }
+             });
+             return false;
+        });
+
+        $("#form_change_password").submit(function(){
+            $.ajax({
+                data: $(this).serialize(), // get the form data
+                type: 'POST',
+                dataType: "json",
+                url: '/accounts/edit-profile/', // the file to call
+                success: function(response) {
+                     if(response.result == true){
+                         $("#flush_password").show().html(response.message).addClass("label label-success")
+                     }
+                     $("#btn_change_password_submit").html(btn_submit)
+                },
+                error: function(response) {
+                     $("#flush_password").hide()
+                     if(response.status == 400){
+                         json_response = $.parseJSON(response.responseText)
+                         Object.keys(json_response).forEach(function(key){
+                             $("#error_" + key).show().html(json_response[key])
+                             $("#id_" + key).css("border-color", "red")
+                         })
+                         if(json_response['message'])
+                             $("#flush_password").show().html(json_response['message']).addClass("label label-danger")
+                     }
+                     $("#btn_change_password_submit").html(btn_submit)
+                },
+                beforeSend: function (){
+                    $("#flush_password").hide()
+                    form_fields = ['password', 'new_password', 'confirm_new_password']
+                    for(i=0; i < form_fields.length; i++){
+                        $("#error_" + form_fields[i]).hide()
+                        $("#id_" + form_fields[i]).css("border-color", "")
+                    }
+                    $("#btn_change_password_submit").html(loader)
+                }
+            });
+            return false;
+        })
+
+        $("#id_institute").change(function(){
+            institute_id = $("#id_institute").val()
+            if(!institute_id) institute_id = 0
+            $.ajax({
+                data: $(this).serialize(),
+                type: "GET",
+                dataType: "json",
+                url: "/labs/get_departments/" + institute_id + "/",
+                success: function(response) {
+                    var mySelect = $('#id_department');
+                    $('#id_department').empty();
+                    mySelect.append(
+                        $('<option></option>').val(0).html('---------')
+                    );
+
+                    $.each(response, function(val, text) {
+                        console.log(text.id + text.name)
+                        mySelect.append(
+                            $('<option></option>').val(text.id).html(text.name)
+                        );
+                    });
+                }
+            })
+        })
+
+        $("#id_is_private").change(function(){
+            id_is_private = $("#id_is_private").val()
+            if(id_is_private == 'True'){
+                $("#display_password_protected").show()
+            }else{
+                $("#display_password_protected").hide()
+            }
+        })
+
+        $('#datetimepicker').datetimepicker();
+		
+
+    });
+</script>

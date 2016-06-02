@@ -1,0 +1,52 @@
+{% extends "o/message_base.html" %}
+{% load i18n %}{% load postman_tags %}
+{% block message_content %}
+<div id="postman" class="messagecontainer conversationPart">
+	<div class="back_reply_button_container">
+		<div class="replywraper">
+			<form action="" method="post">
+				{% csrf_token %}
+				<div class="backbtn">
+					<i class="fa fa-angle-double-left" aria-hidden="true"></i> <a
+						href="{{ next_url }}">{% trans "Back" %}</a> <span
+						class="tooltiptext"> <i class="fa fa-sort-asc"
+						aria-hidden="true"></i> {% trans "Back" %}
+					</span>
+				</div>
+
+				<input type="hidden" {% if pm_messages|length > 1 and message.thread_id %} name="tpks" value="{{ message.thread_id }}"{% else %}name="pks" value="{{ message.pk }}"{% endif %} />
+				
+				{% if 'trash' not in request.path and 'trash' not in request.GET.next %}
+				<div id="pm_buttons">
+					<ul class="btne">
+						<li><i class="fa fa-reply" aria-hidden="true"></i> {% if reply_to_pk %}<a
+							href="{% url 'postman:reply' reply_to_pk %}?next={{ next_url|urlencode }}">{% trans "Reply" %}</a>{% endif %} <span class="tooltiptext"> <i class="fa fa-sort-asc" aria-hidden="true"></i> {% trans "Reply" %}
+						</span></li>
+						<li><i class="fa fa-share" aria-hidden="true"></i> {% if reply_to_pk %}<a class="forward-btn" href="{% url 'postman:forward' reply_to_pk %}?next={{ next_url|urlencode }}">{% trans "Forward" %}</a>{% endif %} <span class="tooltiptext">
+								<i class="fa fa-sort-asc" aria-hidden="true"></i> {% trans "Forward" %}
+						</span></li>
+					</ul>
+				</div>
+				{% endif %}
+			</form>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<h3>{{pm_messages.last.subject}} ({% if pm_messages|length > 1 %}{% trans "Conversation" %}{% else %}{% trans "Message" %}{% endif %})</h3>
+{% for message in pm_messages reversed %}
+<div class="pm_message{% if message.is_pending %} pm_pending{% endif %}{% if message.is_rejected %} pm_rejected{% endif %}{% if message.sender == user and message.sender_archived or message.recipient == user and message.recipient_archived %} pm_archived{% endif %}{% if message.sender == user and message.sender_deleted_at or message.recipient == user and message.recipient_deleted_at %} pm_deleted{% endif %}{% if message.recipient == user and not message.read_at %} pm_unread{% endif %}">
+ <div class="pm_header">
+  <span class="pm_sender">{{ message.obfuscated_sender|or_me:user }}</span> &raquo;
+  <span class="pm_recipient">{{ message.obfuscated_recipient|or_me:user }}</span> |
+  <span class="pm_date">{{ message.sent_at|date:"DATETIME_FORMAT"}}</span> |
+  <span class="pm_subject">{{ message.subject }}</span>
+{% if message.is_rejected %}  <div class="pm_status">{% trans "Rejected" %}{% if message.moderation_reason %}{% trans ":" %} {{ message.moderation_reason }}{% endif %}</div>{% endif %}
+ </div>
+ <div class="pm_body">{{ message.body|linebreaksbr }}</div>
+</div>
+{% if forloop.last %}
+
+{% endif %}
+{% endfor %}
+</div>
+{% endblock %}

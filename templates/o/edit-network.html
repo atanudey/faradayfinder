@@ -1,0 +1,117 @@
+{% extends "o/base.html" %}
+{% block content %}
+<div class="content_outer">
+
+<div class="entry_title"><h1><span>Edit Network</span></h1>
+
+
+</div>
+
+
+<div class="common_block">
+<!--top corner-->
+ <div class="top_corner"><span></span></div>
+<!--top corner-->
+
+<div class="box_mid_container">
+<div class="clear">
+{% include "o/include/left_sidebar.html" %}
+
+
+<div class="pic_right_block">
+<div class=" tab">
+<div class="product_tab">
+<ul>
+
+<li ><a href="/accounts/edit-profile" >edit profile</a></li>
+<li class="active" href="javascript:void(0);"><a href="/accounts/edit-network" style="text-decoration: underline">edit network </a></li>
+<li ><a href="/accounts/change-password" style="text-decoration: underline">change password</a></li>
+</ul>
+
+</div>
+   {% include "o/include/dashboard_menu.html" %}
+</div>
+
+
+<form role="form" class="row"  method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="info_block">
+
+
+
+<div class="Redcolor" style="padding:10px 0 10px 5px;">
+    <span id="flush_message" style="color: green; font-weight: bold; font-size: 12px;">{{ flush_message }}</span>
+</div>
+<h1>Upload Photo & Resume</h1>
+
+<div class="from_action">
+<label>Upload Photo</label>
+{{ form.photo }}
+</div>
+
+<div class="from_action">
+<label>Upload Resume</label>
+{{ form.resume }}
+</div>
+
+</div>
+
+<div class="info_block">
+<h1>My Network</h1>
+<span style="font-size:11px; margin-left:12px;">Update your network profile with public, if your want to share publically</span>
+<div class="from_action">
+<label>Phone</label>
+{{ form.is_phone_public }}
+{{ form.phone }}
+</div>
+
+<div class="from_action">
+<label>Facebook</label>
+{{ form.is_facebook_public }}
+{{ form.facebook }}
+</div>
+
+<div class="from_action">
+<label>Twitter</label>
+{{ form.is_twitter_public }}
+{{ form.twitter }}
+</div>
+
+<div class="from_action">
+<label>Linkedin</label>
+{{ form.is_linkedin_public }}
+{{ form.linkedin }}
+</div>
+
+<div class="from_action">
+<label>Skype</label>
+{{ form.is_skype_public }}
+{{ form.skype }}
+</div>
+
+<div class="from_action">
+<label>AIM</label>
+{{ form.is_aim_public }}
+{{ form.aim }}
+</div>
+
+</div>
+
+<div class="info_block" style="margin-left:10px;" id="btn_edit_profile_submit">
+<input type="submit" class="bluebutton" value="Submit"/>
+</div>
+
+
+</form>
+</div>
+</div>
+</div>
+<!--bot corner-->
+<div class="bot_corner"><span></span></div>
+<!--bot corner-->
+</div>
+
+</div>
+<!--featured events-->
+{% endblock %}
+{% block sidebar %}{% endblock %}

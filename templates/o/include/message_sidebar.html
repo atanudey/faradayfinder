@@ -1,0 +1,56 @@
+{% load postman_tags %}
+{% postman_unread as unread_count %}
+<div class="pic_block">
+	<div class="img_box" onclick="javascript: window.location=''" style="cursor: pointer">
+	
+	{% if user.photo %}
+	    <img src='/media/{{ user.photo }}' title="{{ user.first_name }} {{ user.last_name }}" alt="" width="215px"/>
+	{% else %}
+	    <div style="height: 150px; background-color: white; text-align:center"><img src="/static/images/no-image.png" height="150" title="{{ user.first_name }} {{ user.last_name }}" alt=""/></div>
+	{% endif %}
+	
+	</div>
+	
+	<div class="clear">
+		<h1 class="fullname"><a href="/accounts/dashboard/">{{user.get_full_name}}</a></h1>
+	</div>
+	<div class="tab_nav">
+		<ul>
+		   	<li {% if 'inbox' in request.path or 'inbox' in request.GET.next %} class='selected' {% endif %} ><a href="/messages/inbox/">&raquo;&nbsp;{% if unread_count %}<strong>Inbox&nbsp;({{unread_count}})</strong>{% else %}Inbox{% endif %}</a></li>
+		    <li {% if 'write' in request.path or 'write' in request.GET.next %} class='selected' {% endif %}><a href="/messages/write/">&raquo;&nbsp;Compose</a></li>
+		    <li {% if 'sent' in request.path or 'sent' in request.GET.next %} class='selected' {% endif %}><a href="/messages/sent/">&raquo;&nbsp;Sent</a></li>
+		    <li {% if 'archives' in request.path or 'archives' in request.GET.next %} class='selected' {% endif %}><a href="/messages/archives/">&raquo;&nbsp;Archived</a></li>
+		    <li {% if 'trash' in request.path or 'trash' in request.GET.next %} class='selected' {% endif %}><a href="/messages/trash/">&raquo;&nbsp;Trash</a></li>
+		</ul>
+	</div>
+</div>
+
+<div id="profile_image" title="Upload Profile Image">
+	<div class="InnerPageLoginBlock">
+		<div style="padding: 5px 0px;" class="Redcolor" id="processing"
+			align="left">
+			<img id="loading" src="/static/images/dialogue-loder.gif"
+				style="display: none;">
+		</div>
+		<form name="form" id="form" method="post" action="" enctype="multipart/form-data">
+			<div class="Commanblock">
+				<dl class="Contactusform">
+					<dt>
+						Please select your profile photo to upload<br />
+					</dt>
+					<dd style="margin: 5px 0px 0px 0px;">
+						<input id="fileToUpload" type="file" name="fileToUpload">
+					</dd>
+				</dl>
+			</div>
+			<div class="Colum1" style="padding: 25px 0px 0px 0px;">
+				<input type="button" class="bluebutton" value="Submit"
+					onClick="return check_profile_pic();" style="width: 64px;" /> <input
+					type="button" class="cancel_but" value="Cancel"
+					href="javascript:void(0);"
+					onclick="jQuery('#profile_image').dialog('close');"
+					style="width: 64px;" />
+			</div>
+		</form>
+	</div>
+</div>

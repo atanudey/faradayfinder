@@ -1,0 +1,42 @@
+{% extends "o/base.html" %}
+{% block content %}
+
+<!--midder container-->
+<div class="content_outer">
+
+<div class="entry_title"><h1><span>{{ object.name }} </span></h1></div>
+
+<div class="common_block">
+<!--top corner-->
+<div class="top_corner"><span></span></div>
+<!--top corner-->
+
+<div class="box_mid_container">
+  <div class="clear">
+
+  <div class="pic_left_block">
+    {% include "o/include/object_pic_box.html" %}
+    {% include "o/include/object_menu.html"%}
+  </div>
+    {% include "o/include/object_detail.html" %}
+ </div>
+    {% include "o/include/object_ajax_detail.html" %}
+</div>
+
+<!--bot corner-->
+<div class="bot_corner"><span></span></div>
+<!--bot corner-->
+</div>
+
+</div>
+<!--featured events-->
+
+{% endblock %}
+
+{% block sidebar %}{% endblock %}
+
+
+
+
+
+

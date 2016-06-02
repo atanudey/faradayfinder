@@ -1,0 +1,298 @@
+{% extends "o/base.html" %} {% block content %}
+
+<script language="javascript">
+	jQuery.browser = {};
+	(function () {
+	    jQuery.browser.msie = false;
+	    jQuery.browser.version = 0;
+	    if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+	        jQuery.browser.msie = true;
+	        jQuery.browser.version = RegExp.$1;
+	    }
+	})();
+	$(function() {
+	    $("#id_open_date").datepicker({
+	        changeMonth: true,
+	        changeYear: true,
+	        numberOfMonths: 1,
+	        dateFormat: "yy-mm-dd",
+	        onClose: function(selectedDate) {
+	            $("#id_close_date").datepicker("option", "minDate", selectedDate);
+	        }
+	    });
+	    $("#id_close_date").datepicker({
+	        changeMonth: true,
+	        changeYear: true,
+	        numberOfMonths: 1,	        
+	        dateFormat: "yy-mm-dd",
+	        onClose: function(selectedDate) {
+	            $("#id_open_date").datepicker("option", "maxDate", selectedDate);
+	        }
+	    });
+	    
+	    var selected = $("#id_pay_rate_currency_code").find("option:selected");
+	    if ($(selected).val() != "") {
+		    $("#currency_min").text($(selected).text() + " (" + $(selected).val() + ")");
+	    	$("#currency_max").text($(selected).text() + " (" + $(selected).val() + ")");
+	    }
+	    
+	    $("#id_pay_rate_currency_code").on("change", function(){
+	    	var selected = $(this).find("option:selected");
+	    	if ($(selected).val() != "") {
+		    	$("#currency_min").text($(selected).text() + " (" + $(selected).val() + ")");
+		    	$("#currency_max").text($(selected).text() + " (" + $(selected).val() + ")");
+	    	}
+	    });
+	});
+</script>
+
+<div class="content_outer">
+	<div class="entry_title">
+		<h1>
+			<span>Post Job</span>
+		</h1>
+		<div class="right_contant"></div>
+	</div>
+	<div class="common_block">
+		<!--top corner-->
+		<div class="top_corner">
+			<span></span>
+		</div>
+		<!--top corner-->
+        <div class="box_mid_container">
+        	<div class="clear">
+				{% include "o/include/left_sidebar.html" %}
+            	<div class="pic_right_block">
+                	<div class="tab bordernone">
+					 {% include "o/include/dashboard_menu.html" %}
+					</div>
+					<div class="box_mid_container postjob">
+						<!--<form method="post" name="post_job" id="post_job" action="/jobs/job-payment/" enctype="multipart/form-data">-->
+						<form method="post" name="post_job" id="post_job" action="" enctype="multipart/form-data">
+							{% csrf_token %}
+							<div class="info_block">
+								<h3>
+									<em>Post a job now!</em>
+								</h3>
+								<p>To post a job, please pay a $20 paypal fee.</p>
+								<div class="requiredfields"> You must fill the <span>*</span> required fields</div>
+								
+								{{ form.non_field_errors }}
+								<!-- <p style="padding-top:10px;">
+								    <span  id="error_user" style="color: red; font-weight: bold"></span>
+								    <span  id="error_lab" style="color: red; font-weight: bold"></span>
+								    <span  id="error_job_title" style="color: red; font-weight: bold"></span>
+								    <span  id="error_open_date" style="color: red; font-weight: bold"></span>
+								    <span  id="error_close_date" style="color: red; font-weight: bold"></span>
+								    <span  id="error_type" style="color: red; font-weight: bold"></span>
+								    <span  id="error_department" style="color: red; font-weight: bold"></span>
+								    <span  id="success_hours_per_week" style="color: green; font-weight: bold"></span>
+								</p> -->
+	
+								<!--row-->
+								<!-- <div class="form_content fullwidth">
+									<div class="from_action">
+										<label>User</label> {{form.user}}
+										<div class="Redcolor" >{{form.user.errors}}</div>
+									</div>																							
+								</div> -->
+								<!--row-->
+								
+								<!--row-->
+								<div class="form_content fullwidth">
+									<div class="from_action">
+										<label>Lab Name<strong>*</strong></label>{{form.lab}}
+										<div class="Redcolor" >{{form.lab.errors}}</div>
+									</div>
+	
+	
+									<div class="from_action">
+										<label>Department<strong>*</strong></label>
+										<div id="department_block">
+											{% if departments %} <select name="department"
+												id="id_department" class="input_bg">
+												<option value="">---------</option> {% for department_option in departments %}
+												<option value="{{ department_option.id }}" {% ifequal department_option.id department %} selected="selected"{% endifequal %}>
+													{{department_option.name }}</option> {% endfor %}
+											</select> {% else %} {{ form.department }} {% endif %}
+											<div class="Redcolor" >{{form.department.errors}}</div>
+										</div>
+									</div>								
+	
+	
+								</div>
+								<!--row-->
+								
+								<!--row-->
+	<!--
+								<div class="form_content fullwidth">
+									
+									<div class="from_action">
+										<label>Department<strong>*</strong></label>
+										<div id="department_block">
+											{% if departments %} <select name="department"
+												id="id_department" class="input_bg">
+												<option value="">---------</option> {% for department_option in departments %}
+												<option value="{{ department_option.id }}" {% ifequal department_option.id department %} selected="selected"{% endifequal %}>
+													{{department_option.name }}</option> {% endfor %}
+											</select> {% else %} {{ form.department }} {% endif %}
+											<div class="Redcolor" >{{form.department.errors}}</div>
+										</div>
+									</div>								
+	
+								</div>
+	-->							
+								<div class="form_content fullwidth">
+									<div class="from_action">
+										<label>Open Date<strong>*</strong></label>{{form.open_date}}
+										<div class="Redcolor" >{{form.open_date.errors}}</div>									 
+									</div>
+	<div class="from_action">
+										<label>Close Date<strong>*</strong></label> {{ form.close_date }}
+										<div class="Redcolor" >{{form.close_date.errors}}</div>
+									</div>
+	
+								</div>
+								
+								
+								<div class="form_content fullwidth">
+									
+									<div class="from_action">
+										<label>Job Title<strong>*</strong></label> {{form.job_title}}
+										<div class="Redcolor" >{{form.job_title.errors}}</div>
+									</div>	
+	<div class="from_action">
+										<label>Job Type</label> {{form.type }}
+										<div class="Redcolor" >{{form.type.errors}}</div>
+									</div>									
+														
+								</div>
+									<!--row-->
+								<div class="form_content fullwidth">											
+	                                <label class="Currency">Pay Rate Currency</label>
+									<div class="from_action">{{ form.pay_rate_currency_code}}									
+									</div>
+								</div>
+								<div class="form_content fullwidth">
+								
+									<div class="from_action">
+										<label>Minimum Pay Rate<strong>*</strong></label> {{ form.pay_rate_range_min}}
+										<div class="clear"></div>
+										<div id="currency_min" class="currencyBlock"></div>
+										<div class="Redcolor" >{{form.pay_rate_range_min.errors}}</div>
+									    
+									</div>
+	                                 <div class="from_action">
+										<label>Maximum Pay Rate<strong>*</strong></label> {{ form.pay_rate_range_max }}
+										<div class="clear"></div>
+										<div id="currency_max" class="currencyBlock"></div>
+										<div class="Redcolor" >{{form.pay_rate_range_max.errors}}</div>
+									</div>
+	                              
+								</div>
+								
+								
+								
+								<!--row-->
+								<div class="form_content fullwidth">
+	                                                               <div class="from_action" id="display_password_protected">
+										<label>Standard Hours Per Week<strong>*</strong></label> {{ form.hours_per_week }}
+										<div class="Redcolor" >{{form.hours_per_week.errors}}</div>
+									</div>
+	
+																
+								</div>
+								
+								<!--row-->
+								
+								<div class="form_content fullwidth">
+	                                                                <div class="from_action">
+										<label>{{form.temporary}}Is It Temporary?</label> 
+										<div class="Redcolor" >{{form.temporary.errors}}</div>
+									</div>	
+									
+	                                                             <div class="from_action" id="display_password_protected">
+										<label>  {{ form.work_study_job }} Is this a work study job?</label>
+										<div class="Redcolor" >{{form.work_study_job.errors}}</div>
+									</div>
+								</div>
+								
+								<!--row-->
+								
+								
+	
+								<!--row-->
+								<div class="form_content fullwidth">
+	                                     <div class="from_action" id="display_password_protected">
+										<label>Work Schedule Summary<strong>*</strong></label> {{ form.work_schedule_summary }}
+										<div class="Redcolor" >{{form.work_schedule_summary.errors}}</div>
+									</div>
+	
+									<div class="from_action">
+										<label>Job Summary<strong>*</strong></label> {{ form.job_summary }}
+										<div class="Redcolor" >{{form.job_summary.errors}}</div>
+									</div>								
+	
+								</div>
+								<!--row-->
+								
+								<!--row-->
+								<div class="form_content fullwidth">
+									<div class="from_action">
+										<label>Responsibilities<strong>*</strong></label> {{ form.responsibilities }}
+										<div class="Redcolor" >{{form.responsibilities.errors}}</div>
+									</div>
+		                                                    <div class="from_action">
+										<label>Minimum Qualifications<strong>*</strong></label>  
+	                                                                          {{ form.minimum_qualification }}                   
+										<div class="Redcolor" >{{form.minimum_qualification.errors}}
+	                                                                         </div>						
+									</div>
+								</div>
+								
+								
+								<!--row-->
+	
+								<div class="form_content fullwidth">
+									
+									<div class="from_action">
+										<label>Preferences</label> {{ form.preferences }}
+										<div class="Redcolor" >{{form.preferences.errors}}</div>
+									</div>	
+	                                                                  <div class="from_action">
+										<label>Additional Information</label> {{ form.additional_information }}
+										<div class="Redcolor" >{{form.additional_information.errors}}</div>
+									</div>							
+		
+								</div>
+								
+								
+		
+								<div class="common_block pad_t15">
+		
+									<input type="submit" class="bluebutton" name="submit"
+										value="Post Job" /> <input type="reset"
+										class="cancel_but" value="Cancel" />
+		
+								</div>
+							</div>						
+	
+						</form>									    
+	
+					<div class="clear"></div>
+				</div>
+				</div>
+			</div>
+      	</div>
+		<!--bot corner-->
+		<div class="bot_corner">
+			<span></span>
+		</div>
+		<!--bot corner-->
+	</div>
+</div>
+<!--left container-->
+
+{% endblock %}
+
+{% block sidebar %}{% endblock %}

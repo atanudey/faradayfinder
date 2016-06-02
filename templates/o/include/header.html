@@ -1,0 +1,53 @@
+<!--header-->
+<div class="top_bg">
+    <div class="top_bg_inner">
+        <div class=" top_nav">
+            <ul>
+                <li><a href="#">blog</a></li>
+                <li><a href="/about-us">about us</a></li>
+                <li><a href="/contact-us">contact us</a></li>
+                <li><a href="/faq">faq</a></li>
+                <li><a href="#">sell tickets</a></li>  
+                <li ><a href="/jobs/post-job/">post job</a></li>
+            </ul>
+        </div>
+
+        <div class=" top_icon">
+            <a href="#" target="_blank" class="fb_icon"></a>
+            <a href="#" target="_blank" class="twitter"></a>
+            <a href="#" target="_blank" class="blloger"></a>
+            <a href="#" target="_blank" class="Reddit"></a>
+        </div>
+    </div>
+</div>
+
+<div class="header">
+    <div class="navication">
+        <ul>
+            <li ><a href="/"><span>home</span></a></li>
+            <li ><a href="/search/labs/"><span>labs</span></a></li>
+            <li ><a href="#"><span>projects</span> </a></li>
+            <li ><a href="#"><span>events</span></a></li>
+            <li ><a href="#"><span>equipment</span> </a></li>            
+            <li ><a href="/search/jobs/"><span>jobs</span> </a></li>
+            <li ><a href="/discussion-boards/"><span>discussion boards</span> </a></li>                      
+        </ul>
+    </div>
+
+    <div class="banner"><img src="/static/images/slideshow.gif" style="border:4px solid #FFF;border-radius: 5px;behavior: url(pages/border-radius.htc);border-radius: 5px;" width="892" height="137" alt="left" /></div>
+
+    <div class="login_box">
+    {% if user.is_authenticated %}    	
+        <p style="margin-left:140px;"><a href="/accounts/dashboard/">MY ACCOUNT</a></p>        
+    <a class="login_button" href="/accounts/logout/">Logout&nbsp;&nbsp;&nbsp;</a>
+
+    {% else %}
+        <p>Not a member yet?</p>
+    <p><a href="/accounts/signup">REGISTER&nbsp;NOW</a></p>
+    <a class="login_button" href="/accounts/login">Login</a>
+
+    {% endif %}
+
+    </div>
+</div>
+<!--header-->

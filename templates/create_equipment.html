@@ -1,0 +1,186 @@
+{% extends "base_inner.html" %}
+{% block content %}
+<!-- Middle content start here -->
+
+<div class="container">
+  <div class="row">
+    <div class="login_left col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="login-heading">
+            <h1>My Account</h1>
+          </div>
+        </div>
+        {% include 'common/dashboard_menu.html' %}
+      </div>
+      <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="login_sec">
+        <div class="row">
+          <div class="col-md-12 row">
+            <div class="my_profile my_ac_text col-md-4 col-sm-4 ">
+               {% include 'common/dashboard_left_sidebar.html' %}
+            </div>
+            <div class="col-md-8 col-sm-8">
+              <div class="event_heading">
+                <h2>Create New Equipment</h2>
+                {% if form.errors %}
+                <div class="alert alert-danger" role="alert">
+                {{ form.errors }}
+                </div>
+                {% endif %}
+                <p>After submit the event and after members acivicties. you can't delete the lab.
+                  Need a help click here <a href="#">FAQ</a> OR <a href="#">CONTACT US</a></p>
+              </div>
+              <div role="form" class="row">
+                <div class="form-group col-md-12 col-sm-6">
+                      <label for="code">Equipment Name<span class="red">*</span></label>
+                      {{ form.name }}
+              </div>
+              <div class="form-group col-md-12 col-sm-6">
+                      <label for="code">Photo</label>
+                      {{ form.photo }}
+              </div>
+                <div class="form-group sym col-md-12 col-sm-6">
+                    <label for="code">Lab<span class="red">*</span></label>
+                    {{ form.lab }}
+                </div>
+                <div class="form-group sym col-md-6 col-sm-6">
+                    <label for="code">Primary website URL</label>
+                    {{ form.primary_url }}
+                    <p>eg. http://www.example.com</p>
+                </div>
+                <div class="form-group sym col-md-6 col-sm-6">
+                  <label for="code">Primary Twitter account URL</label>
+                  {{ form.primary_twitter }}
+                  <p>eg. http://www.twitter.com/ACCOUNT-NAME</p>
+                </div>
+                <div class="form-group sym col-md-6 col-sm-6">
+                    <label for="code">Do you want to make this lab password protected?</label>
+                    {{ form.is_private }}
+                </div>
+                <div class="form-group sym col-md-6 col-sm-6" id="display_password_protected" style="display: {% if display_password_protected %}block{% else %}none{% endif %}">
+                  <label for="code">Enter password</label>
+                  {{ form.password }}
+                </div>
+              </div>
+
+             <div class="event_heading">
+                <h2>Address Information</h2>
+              </div>
+              <div role="form" class="row">
+                <div class="form-group col-md-12 col-sm-6">
+                  <label for="code">Address</label>
+                  {{ form.address }}
+                </div>
+                <div class="form-group sym col-md-6 col-sm-6">
+                  <label for="code">City</label>
+                  {{ form.city }}
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <label for="code">State</label>
+                  {{ form.state }}
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                  <label for="code">Country</label>
+                  {{ form.country }}
+                </div>
+                <div class="form-group sym col-md-6 col-sm-6">
+                  <label for="code">Zip Code</label>
+                 {{ form.zipcode }}
+                </div>
+              </div>
+
+
+              <div class="event_heading">
+                <h2>About Equipment</h2>
+              </div>
+              <div role="form" class="row">
+                <div class="form-group col-md-12 col-sm-12">
+                  <label for="code">About Equipment</label>
+                  {{ form.description }}
+                  <p>You can enter maximum 1500 character</p>
+                </div>
+              </div>
+              <div class="event_heading">
+                <h2>SEO Meta Information</h2>
+              </div>
+              <div role="form" class="row">
+                <div class="form-group sym col-md-6 col-sm-6">
+              <label for="code">Keywords</label>
+              {{ form.meta_keyword }}
+            </div>
+            <div class="form-group sym col-md-6 col-sm-6">
+              <label for="code">Abstract</label>
+              {{ form.meta_abstract }}
+            </div>
+            <div class="form-group col-md-12 col-sm-12">
+              <label for="code">Description</label>
+              {{ form.meta_description }}
+            </div>
+              </div>
+              <div class="event_heading">
+                <h2>Contact Information</h2>
+              </div>
+              <div role="form" class="row">
+                <div class="form-group sym col-md-6 col-sm-6">
+                  <label for="code">Facebook</label>
+                  {{ form.facebook }}
+                </div>
+                <div class="form-group sym col-md-6 col-sm-6">
+                  <label for="code">Twitter</label>
+                  {{ form.twitter }}
+                </div>
+                <div class="form-group sym col-md-6 col-sm-6">
+                  <label for="code">Email</label>
+                  {{ form.email }}
+                </div>
+                <div class="form-group sym col-md-6 col-sm-6">
+                  <label for="code">LinkedIn</label>
+                  {{ form.linkedin }}
+                </div>
+                <div class="form-group sym col-md-6 col-sm-6">
+                  <label for="code">Skype</label>
+                  {{ form.skype }}
+                </div>
+                <div class="form-group sym col-md-6 col-sm-6">
+                  <label for="code">Phone</label>
+                  {{ form.phone }}
+                </div>
+              </div><div class="event_heading">
+                <h2>Lab Paypal Account Information</h2>
+              </div>
+              <div role="form" class="row">
+                <div class="form-group sym col-md-12 col-sm-6">
+                  <label for="code">Lab Paypal Id</label>
+                  {{ form.paypal_account }}
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-10">
+                    <div class="checkbox">
+                      <label>
+                      {{ form.tnc }}
+                      <p>I have read and accept <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy Policy</a></p>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-success">Create Equipment</button>
+                    <button type="button" class="btn btn-primary">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script type="application/javascript">
+
+</script>
+{% endblock %}

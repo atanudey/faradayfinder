@@ -1,0 +1,140 @@
+{% extends "o/base.html" %}
+{% block content %}
+
+
+
+<!--midder container-->
+<div class="midder_content">
+<div id="left_container">
+
+<div class="content_outer">
+
+
+<div class="common_block">
+<!--top corner-->
+<div class="top_corner"><span></span></div>
+<!--top corner-->
+
+<div class="box_mid_container">
+<div class="clear">
+
+<div class="pic_box">
+<div class="common_block"><img src="/static/images/fraday_pic.png" alt="left" /></div>
+<div class="search_block">
+<h2>search faraday finder</h2>
+<form method="post" action="" name="search-lab">
+<input type="hidden" name="searching" value="searching" />
+<input name="search" type="text" class="search_bg"  onblur="if(jQuery('#search').val()=='') jQuery('#search').val('enter your keyword');" onfocus="jQuery('#search').val('');" id="search" value="enter your keyword" size="32" maxlength="128" />
+<select name="sort_by" class="search_bg" style="width:137px;float:left;">
+  <option value=""> - Sort by - </option>
+  <option value="city" >City</option>
+  <option value="country" >Country</option>
+  <option value="date" >Date</option>
+  <option value="member" ># Member</option>
+  <option value="name" selected>Name</option>
+  <option value="state" >State</option>
+  <option value="zipcode" >Zipcode</option>
+</select>
+<div style="float:right; margin-right:45px;" class="Text11"><input name="sort_type" checked type="radio" value="asc" /> Asc <input name="sort_type"  type="radio" value="desc" /> Desc</div>
+<div class="filter_search ">
+<label>Browse by</label>
+<div class="clear">
+<a href="/ffdev/search-lab/a/">A</a><a href="/ffdev/search-lab/b/">B</a>
+  <a href="/ffdev/search-lab/c/">C</a><a href="/ffdev/search-lab/d/">D</a>
+  <a href="/ffdev/search-lab/e/">E</a><a href="/ffdev/search-lab/f/">F</a><a href="/ffdev/search-lab/g/">G</a><a href="/ffdev/search-lab/h/">H</a><a href="/ffdev/search-lab/i/">I</a><a href="/ffdev/search-lab/j/">J</a><a href="/ffdev/search-lab/k/">K</a><a href="/ffdev/search-lab/l/">L</a><a href="/ffdev/search-lab/m/">M</a><a href="/ffdev/search-lab/n/">N</a><a href="/ffdev/search-lab/o/">O</a><a href="/ffdev/search-lab/p/">P</a><a href="/ffdev/search-lab/q/">Q</a><a href="/ffdev/search-lab/r/">R</a><a href="/ffdev/search-lab/s/">S</a><a href="/ffdev/search-lab/t/">T</a><a href="/ffdev/search-lab/u/">U</a><a href="/ffdev/search-lab/v/">V</a><a href="/ffdev/search-lab/w/">W</a><a href="/ffdev/search-lab/x/">X</a><a href="/ffdev/search-lab/y/">Y</a><a href="/ffdev/search-lab/z/">Z</a></div>
+<input type="submit" class="bluebutton clickherebut" value="Refine Your Search"  />
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<!--bot corner-->
+<div class="bot_corner"><span></span></div>
+<!--bot corner-->
+</div>
+
+</div>
+
+<div class="content_outer">
+
+<div class="common_block">
+<div class="entry_title fullblock"><h1><span>search result </span></h1>
+<ul class="tabs padr10">
+    <li class="active"><a href="/search/labs"><span>laboratories</span></a></li>
+    <li><a href="#"><span>projects</span></a></li>
+    <li><a href="#"><span>events</span></a></li>
+    <li><a href="#"><span>equipments</span></a></li>
+    <li><a href="#"><span>jobs</span></a></li>
+</ul>
+</div>
+<!--top corner-->
+<div class="top_corner"><span></span></div>
+<!--top corner-->
+
+<div class="box_mid_container">
+
+
+
+<div class="listing_main">
+<div class="img_block"><img src="/media/labs/2015/10/SOA_SideKick_8._UX264_SX264_V314755625_.jpg" alt="left" width="120px" height="100px"/></div>
+
+<div class="lab_block">
+<h1><a href="#" onclick="">Bioenergy Plantations Australia</a></h1>
+<p>2 Member<br />
+PO Box 1127
+Caboolture
+QLD,
+Australia&nbsp;&nbsp;4510<br />
+<a href="#" onclick="">read more</a>
+</p>
+<a href="#" onclick="" class="join_button">Join us</a>
+</div>
+</div>
+
+  <div class="listing_main">
+<div class="img_block"><img src="/media/labs/2015/10/SOA_SideKick_8._UX264_SX264_V314755625_.jpg" alt="left" width="120px" height="100px"/></div>
+
+<div class="lab_block">
+<h1><a href="#" onclick="">Bioenergy Plantations Australia</a></h1>
+<p>2 Member<br />
+PO Box 1127
+Caboolture
+QLD,
+Australia&nbsp;&nbsp;4510<br />
+<a href="#" onclick="">read more</a>
+</p>
+<a href="#" onclick="" class="join_button">Join us</a>
+</div>
+</div>
+
+
+
+</div>
+
+<div class="bot_corner"><span></span></div>
+</div>
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+{% load postman_tags %}
+{% postman_unread as unread_count %}
+<div class="crete_buttons">
+	<div class="crete_buttons_inner">
+		<div class=" create_icon" style="width: 720px">
+			<a href="/lab/create/" class="lab_button">Create New Lab</a>
+			<a href="/project/create/" class="lab_button">Create New Project</a> 
+			<a href="/event/create/" class="lab_button">Create New Event</a>
+			<a href="/equipment/create/" class="lab_button">Create New Equipment</a>
+			<a href="/jobs/post-job/" class="lab_button">Create New Job</a>
+			{% if unread_count %}
+				<a href="/messages/" class="withmassage" >
+				<!--<img src="/static/images/inbox-mail.png" width="50" />-->
+				<!--<i class="fa fa-fw" aria-hidden="true">&#xf003;</i>-->
+				<span>{{unread_count}}</span>
+				</a>
+			{% else %}
+				<a class="withoutmassage" href="/messages/">
+				 <!--<img src="/static/images/inbox.png" width="50" />-->
+				 <!---<i class="fa fa-fw" aria-hidden="true">&#xf003;</i>-->
+				</a>
+			{% endif %}
+		</div>
+	</div>
+</div>

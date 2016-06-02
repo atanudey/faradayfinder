@@ -1,0 +1,127 @@
+{% extends "o/base.html" %}
+{% block content %}
+<div class="content_outer">
+
+<div class="entry_title"><h1><span>Edit Profile</span></h1>
+
+
+</div>
+
+
+<div class="common_block">
+<!--top corner-->
+ <div class="top_corner"><span></span></div>
+<!--top corner-->
+
+<div class="box_mid_container">
+<div class="clear">
+{% include "o/include/left_sidebar.html" %}
+
+
+<div class="pic_right_block">
+<div class=" tab">
+<div class="product_tab">
+<ul>
+
+<li class="active"><a href="javascript:void(0);">edit profile</a></li>
+<li ><a href="/accounts/edit-network" style="text-decoration: underline">edit network </a></li>
+<li ><a href="/accounts/change-password" style="text-decoration: underline">change password</a></li>
+</ul>
+
+</div>
+
+   {% include "o/include/dashboard_menu.html" %}
+</div>
+
+
+
+<form role="form" class="row" name="form_edit_profile" id="form_edit_profile" method="post">
+{% csrf_token %}
+<div class="info_block">
+<div class="Redcolor" style="padding:10px 0 10px 5px;">
+    <span id="error_first_name" class="Redcolor"></span>
+    <span id="error_last_name" class="Redcolor"></span>
+    <span id="error_dob" class="Redcolor"></span>
+    <span id="error_address" class="Redcolor"></span>
+    <span id="error_city" class="Redcolor"></span>
+    <span id="error_state" class="Redcolor"></span>
+    <span id="error_country" class="Redcolor"></span>
+    <span id="error_zipcode" class="Redcolor"></span>
+    <span id="error_about_me" class="Redcolor"></span>
+    <span id="flush_message" style="color: green; font-weight: bold; font-size: 12px;"></span>
+</div>
+<h1>Personal Information</h1>
+
+
+<div class=" from_block">
+<div class="from_action">
+<label>First Name</label>
+{{ form.first_name }}
+</div>
+<div class="from_action">
+<label>Last Name</label>
+{{ form.last_name }}
+</div>
+</div>
+<div class="from_block">
+<div class="from_action">
+<label>DOB</label>
+{{ form.dob }}
+</div>
+</div>
+
+
+</div>
+
+<div class="info_block">
+<h1>Contact Information</h1>
+
+<div class="from_action">
+<label>Address</label>
+{{ form.address }}
+</div>
+<div class="from_action">
+<label>City</label>
+{{ form.city }}
+</div>
+<div class="from_action">
+<label>State</label>
+{{ form.state }}
+</div>
+<div class="from_action">
+<label>Country</label>
+{{ form.country }}
+</div>
+<div class="from_action">
+<label>Zip Code</label>
+{{ form.zipcode }}
+</div>
+</div>
+
+<div class="info_block">
+<h1>Other Information</h1>
+
+<div class="from_action">
+<label>About Me</label>
+    <p>(Please write something about yourself. It will be publicly displayed')</p>
+{{ form.about_me }}
+</div>
+
+<div class="pad_t10" style="padding-top: 180px;" id="btn_edit_profile_submit">
+<input type="submit" class="bluebutton" value="Submit"/>
+</div>
+
+</div>
+</form>
+</div>
+</div>
+</div>
+<!--bot corner-->
+<div class="bot_corner"><span></span></div>
+<!--bot corner-->
+</div>
+
+</div>
+<!--featured events-->
+{% endblock %}
+{% block sidebar %}{% endblock %}

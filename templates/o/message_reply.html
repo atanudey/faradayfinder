@@ -1,0 +1,57 @@
+{% extends "o/message_base.html" %}
+{% load i18n static %}
+{% block extrahead %}{{ block.super }}
+{{ form.media }}{# for ajax_selects (v1.3.6 at least) #}
+{% endblock %}
+{% block message_content %}
+<script language="javascript">
+$(document).ready(function(){	
+	$("#id_recipients").tokenInput("/accounts/users/",{
+		//prePopulate: [{"id": "atanu@innovaidesystems.com", "name": "Atanu Dey [atanu@innovaidesystems.com]"}, {"id": "atanu@gmail.com", "name": "Atanu Dey [atanu@gmail.com]"}, {"id": "mratanudey@gmail.com", "name": "Atanu Dey [mratanudey@gmail.com]"}],
+	    searchDelay: 200,
+	    queryParam: "term",
+	    preventDuplicates: true,
+	    tokenDelimiter: ",",
+	    hintText: "Type name or email address",
+	    searchingText: "Searching users ..."
+	});
+});
+</script>
+<div id="postman" class="messagecontainer composeMessage">
+<h3>
+	<em>Reply Message</em>
+</h3>
+<p>Send a reply message to the sender.</p>
+<div class="requiredfields"> You must fill the <span>*</span> required fields	</div>
+<form action="{% if next_url %}?next={{ next_url|urlencode }}{% endif %}" method="post">{% csrf_token %}
+	<div class="info_block">					
+		<div class="form_content fullwidth">
+			<div class="from_action">
+				<label>Recipient</label>{{ recipient }}								
+			</div>
+			<div class="from_action">
+				<label>Additional Recipients</label>{{form.recipients}}
+				<div class="Redcolor" >{{form.recipients.errors}}</div>
+			</div>
+			<div class="from_action">
+				<label>Subject<strong>*</strong></label>{{form.subject}}
+				<div class="Redcolor" >{{form.subject.errors}}</div>
+			</div>
+			<div class="from_action">
+				<label>Message<strong>*</strong></label>{{form.body}}
+				<div class="Redcolor" >{{form.body.errors}}</div>
+			</div>
+		</div>
+		<div class="common_block pad_t15">
+			<div class="sendMsg"><input type="submit" class="bluebutton" name="submit" value="Send Message" /></div>		
+			<div class="back"><a href="{{ next_url }}">{% trans "Back" %}</a></div>	
+		</div>
+		<!-- <table>
+		{% block pm_write_recipient %}{% endblock %}
+		{{ form.as_table }}
+		</table>
+		<button type="submit">{% trans "Send" %}</button> -->
+	</div>
+</form>
+</div>
+{% endblock %}

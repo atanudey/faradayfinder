@@ -1,0 +1,102 @@
+{% extends "base_inner.html" %}
+{% block content %}
+<!-- Middle content start here -->
+<div class="container">
+  <div class="row">
+    <div class="login_left col-sm-6 col-md-8">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="login-heading">
+            <h1>Contact us</h1>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="login-rt_txt pull-right">
+            <p>You must fill the<span>*</span> required fields</p>
+          </div>
+        </div>
+      </div>
+      <div class="login_sec">
+        <p><strong class="free">Say Hello!</strong><br>
+          We’re always happy to hear from you!
+          It is very easy. Fill out the form below and submit it. We will get 
+          back to you with an appropriate reply very soon.</p>
+        <form role="form" class="row">
+          <div class="form-group col-md-6">
+            <label for="code">First Name<span class="red">*</span></label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="code">Last Name<span class="red">*</span></label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="code">Email Address<span class="red">*</span></label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="code">Message Subject<span class="red">*</span></label>
+            <select class="form-control">
+              <option>General Information</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6 change-txt"> <img src="/static/images/pic_car.jpg" alt=""> <br>
+            <a href="#"> change text</a>
+            <div class="col-md-8 col-sm-12 row">
+              <input type="text" class="form-control input-normal">
+            </div>
+          </div>
+          <div class="form-group col-md-6 ">
+            <label for="code">Messages<span class="red">*</span></label>
+            <textarea class="form-control" rows="3"></textarea>
+            <p>1000 Characters Left</p>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-10">
+              <button type="button" class="btn btn-success">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="feature_right col-sm-6 col-md-4">
+      <div class="follow_us">
+        <div class="clearfix">
+          <div class="login-heading">
+            <h1>Follow us</h1>
+          </div>
+        </div>
+        <div class="login_sec col-md-12">
+          <h3>Connect with us on a Social Network and get the letest news and updates</h3>
+          <ul>
+            <li class="fb"><a href="#"></a></li>
+            <li class="tw"><a href="#"></a></li>
+            <li class="blog"><a href="#"></a></li>
+            <li class="redit"><a href="#"></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="follow_us">
+        <div class="clearfix">
+          <div class="login-heading">
+            <h1>Other Information</h1>
+          </div>
+        </div>
+        <div class="login_sec col-md-12">
+          <div class="row">
+            <div class="other-info col-md-12">
+              <p><a href="#"><img src="/static/images/email.jpg"> info@faradayfinder.com</a></p>
+              <p><a href="#"><img src="/static/images/email.jpg"> zachary.wach@gmail.com</a></p>
+              <img src="/static/images/ph_icon.png" alt="">US 1800-200-600<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;US 1800-200-601 </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

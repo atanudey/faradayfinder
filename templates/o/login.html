@@ -1,0 +1,60 @@
+{% extends "o/base.html" %}
+{% block content %}
+
+<!--left container-->
+<div id="left_container">
+<div class="content_outer">
+<div class="entry_title"><h1><span>Login</span></h1>
+<div class="right_contant">
+You must fill the <span>*</span> required fields</div>
+</div>
+<div class="common_block">
+<!--top corner-->
+<div class="top_corner"><span></span></div>
+<!--top corner-->
+<div class="box_mid_container">
+<form method="post"  action="/accounts/login/" name="login_request" id="login_request">
+    {% csrf_token %}
+    <div class="clear">
+    <span>Please enter your Email address and Password for login.</span>
+    <p style="padding-top:10px;">
+    <span  id="error_email" style="color: red; font-weight: bold"></span>
+    <span  id="error_password" style="color: red; font-weight: bold"></span>
+    <span  id="flush_message" style="color: green; font-weight: bold">{{ flush_message }}</span>
+    </p>
+    <div class="from">
+    <span class="Redcolor"></span>
+    <div class="form_content fullwidth">
+    <label>Email <span>*</span></label>
+    {{ form.email }}
+    </div>
+    <div class="form_content">
+    <label>Password <span>*</span></label>
+    <span class="label label-danger" id="error_password"></span>
+    {{ form.password }}
+    </div>
+    {% if next %}
+    <div >
+       <input name='next' value='{{next}}' style="display: none;">
+    </div>
+    {% endif %}
+    <div class="clear">
+    <p class="helptext">
+    <a  style="color:#113574;" href="/accounts/forgot-password">Lost Password ?</a></p>
+    </div>
+    </div>
+    <div class="common_block pad_t15">
+    <div id="btn_submit"><input type="submit" value="Submit" class="bluebutton" /></div>
+    </div>
+    </div>
+</form>
+<div class="clear"></div>
+</div>
+<!--bot corner-->
+<div class="bot_corner"><span></span></div>
+<!--bot corner-->
+</div>
+</div>
+</div>
+<!--left container-->
+{% endblock %}

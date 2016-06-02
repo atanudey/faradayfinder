@@ -1,0 +1,190 @@
+{% extends "o/base.html" %} {% block content %}
+<!--left container-->
+<div id="left_container">
+	<div class="content_outer">
+	
+		<div class="entry_title">
+			<h1>
+				<span>{{ object.job_title }}</span>
+			</h1>
+		</div>
+	
+		<div class="common_block">
+			<!--top corner-->
+			<div class="top_corner">
+				<span></span>
+			</div>
+			<!--top corner-->
+			
+			<div class="box_mid_container postjobt">
+				
+				<!--row-->
+				<div class="row">
+					  <h3>Created By</h3>
+					  <h4> {{object.user.first_name}}&nbsp{{object.user.last_name}}</h4>
+						
+					
+				</div>
+				<!--row-->
+	
+				<!--row-->
+				<div class="row">
+					
+						<h3>Lab Name</h3>
+						 <h4> {{object.lab.name}}</h4>
+					
+				</div>
+				<!--row-->
+	
+				<!--row-->
+				<div class="row">
+	
+					
+						<h3>Department</h3>
+						 <h4>{{object.department.name}}</h4>
+					
+	
+				</div>
+	
+				<div class="row">
+					
+						<h3>Open Date</h3>
+						 <h4>{{object.open_date}}</h4>
+					
+				</div>
+	
+				<div class="row">
+	
+					
+						<h3>Close Date</h3>
+						 <h4>{{ object.close_date }}</h4>
+					
+	
+				</div>
+	
+				<div class="row">
+	
+				
+						<h3>Job Title</h3>
+						<h4>{{object.job_title}}</h4>
+					
+	
+				</div>
+				<!--row-->
+	
+				<div class="row">
+					
+						<h3>Job Type</h3>
+						<h4>{{object.type }}</h4>
+					
+				</div>
+	
+				<!--row-->
+				<div class="row">
+	
+				
+						<h3>Is It Temporary?</h3>
+						<h4>{{object.temporary}}</h4>
+					
+				</div>
+	
+				<!--row-->
+				<div class="row">
+					<div style="display: {%">
+						<h3>Standard Hours Per Week</h3>
+						<h4>{{ object.hours_per_week }}</h4>
+					</div>
+				</div>
+	
+				<!--row-->
+				<div class="row">
+					<div style="display: {%">
+						<h3>Work Schedule Summary</h3>
+						<h4>{{ object.work_schedule_summary }}</h4>
+					</div>
+				</div>
+	
+				<!--row-->
+				<div class="row">
+					<div style="display: {%">
+						<h3>Is this a work study job?</h3>
+						<h4>{{ object.work_study_job }}</h4>
+					</div>
+				</div>
+	
+				<!--row-->
+				<div class="row">
+					<h3>Minimum Pay Rate</h3>
+					<h4>
+						{{ object.pay_rate_range_min}}
+						<span id="currency_min" class="currencyBlock currencyspan">{{currency}} ({{ object.pay_rate_currency_code }})</span>
+					</h4>
+					
+				</div>
+				
+				<!--row-->
+				<div class="row">
+				
+						<h3>Maximum Pay Rate</h3>
+						<h4>{{ object.pay_rate_range_max }}<span id="currency_max" class="currencyBlock currencyspan">{{currency}} ({{ object.pay_rate_currency_code }})</span></h4>
+						
+					
+				</div>
+				<!--row-->
+	
+				<!--row-->
+				<div class="row">
+	
+					
+						<h3>Job Summary</h3>
+						<h4>{{ object.job_summary }}</h4>
+					
+	
+				</div>
+				<!--row-->
+	
+				<!--row-->
+				<div class="row">
+					
+						<h3>Responsibilities</h3>
+						<h4>{{ object.responsibilities }}</h4>
+					
+				</div>
+	
+				<div class="row">
+	
+					
+						<h3>Minimum Qualifications</h3>
+						<h4>{{ object.minimum_qualification }}</h4>
+					
+	
+				</div>
+				<!--row-->
+	
+				<div class="row">
+				
+						<h3>Preferences</h3>
+						<h4>{{ object.preferences }}</h4>
+					
+	
+				</div>
+	
+				<div class="row">
+					
+						<h3>Additional Information</h3>
+						<h4>{{ object.additional_information }}</h4>
+					
+				</div>
+				
+			</div>
+	
+			<!--bot corner-->
+			<div class="bot_corner">
+				<span></span>
+			</div>
+			<!--bot corner-->
+		</div>
+	
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base_inner.html" %}
+{% block content %}
+<!-- Middle content start here -->
+<div class="container">
+  <div class="row">
+    <div class="login_left col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="login-heading">
+            <h1>My Account</h1>
+          </div>
+        </div>
+        {% include 'common/dashboard_menu.html' %}
+      </div>
+      <div class="login_sec">
+        <div class="row">
+          <div class="col-md-12 row">
+            <div class="my_profile my_ac_text col-md-4 col-sm-4 ">
+                {% include 'common/dashboard_left_sidebar.html' %}
+            </div>
+            <div class="col-md-8 col-sm-8 pull-right">
+              <div class="event_heading">
+                <h2>Dashboard</h2>
+                <p>Welcome to your 'Secured Area' area.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

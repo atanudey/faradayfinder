@@ -1,0 +1,34 @@
+{% extends "o/base.html" %}
+{% block content %}
+<div class="content_outer">
+	<div class="entry_title"><h1><span>Send Message</span></h1></div>
+	<div class="common_block">
+		<!--top corner-->
+		<div class="top_corner"><span></span></div>
+		<!--top corner-->
+		<div class="box_mid_container">
+			<div class="clear">
+				{% include "o/include/message_sidebar.html" %}	
+				<div class="pic_right_block">
+					<div class=" tab bordernone">
+							{% include "o/include/dashboard_menu.html" %}
+					</div>							              	
+					{% load i18n postman_tags %}{% load pagination_tags %}{% comment %}
+					WARNING: 'pagination_tags' is a name from the django-pagination application.
+					For convenience, the design of this template is done with the use of that application.
+					Django-postman will still be working, even if that application is not installed, by providing a mock
+					for the template tag library.
+					If the real implementation is to be used, just make sure that 'pagination' is declared before 'postman'
+					in the INSTALLED_APPS setting.
+					{% endcomment %}
+					{% block message_content %} {% endblock %}					
+				</div>
+			</div>
+		</div>
+		<!--bot corner-->
+		<div class="bot_corner"><span></span></div>
+		<!--bot corner-->
+	</div>
+</div>
+{% endblock %}
+{% block sidebar %}{% endblock %}

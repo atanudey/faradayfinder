@@ -1,0 +1,61 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="foot_links col-md-12">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about-us/">About us</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Labs</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Discussion Board</a></li>
+          <li><a href="/terms-and-conditions/">Terms and Conditions</a></li>
+          <li><a href="/privacy-and-policy/">Privacy and Policy</a></li>
+        </ul>
+      </div>
+      <div class="copyright col-md-12"> <span>&copy; 2015 Farady Finder All Right Reserved</span> </div>
+    </div>
+  </div>
+</footer>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery-1.6.1.min.js"></script>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/static/js/bootstrap-dropdown.js"></script>
+<script src="/static/js/bootstrap-collapse.js"></script>
+<script type="text/javascript" src="/static/js/scriptbreaker-multiple-accordion-1.js"></script>
+<script>
+ jQuery(document).ready(function() {
+	    jQuery(".accord").accordion({
+        accordion:true,
+        speed: 500,
+        closedSign: '<img src="/static/images/bullet_toggle_plus.png" alt="" />',
+        openedSign: '<img src="/static/images/bullet_toggle_minus.png"  alt="" />'
+    	});
+      jQuery("ul.topnav li a.current span:first-child").addClass("main");
+	  });
+    </script>
+<script src="/static/js/owl.carousel.js"></script>
+<script>
+    $(document).ready(function() {
+      $("#owl-demo").owlCarousel({
+        autoPlay: 3000,
+        items : 4,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,3]
+      });
+    });
+
+    $(document).ready(function() {
+      $("#owl-example").owlCarousel({
+        autoPlay: 3000,
+        items : 4,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,3],
+
+      });
+    });
+</script>

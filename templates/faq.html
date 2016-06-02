@@ -1,0 +1,80 @@
+{% extends "base_inner.html" %}
+{% block content %}
+<!-- Middle content start here -->
+<div class="container">
+  <div class="row">
+    <div class="login_left col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="login-heading">
+            <h1>Frequently asked questions</h1>
+          </div>
+        </div>
+      </div>
+      <div class="login_sec">
+        <div class="row">
+          <div class="welcome_text col-md-6"> <span class="free">Most frequently asked question(FAQ)</span> <br>
+            <br>
+          </div>
+        </div>
+        <div class=" clearfix col-mid-12">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Basics of Member Registration </a> </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <p><strong>Question 1 :</strong> Is the registration is free?</p>
+                  <p><strong>Answer :</strong> Yes,It is totally free right now and very simple to do.</p>
+                  <p><strong>Question 2 :</strong> How much lab and project can a member add?</p>
+                  <p><strong>Answer : </strong> User can add lab and projects as much as he can,we just want to make help all the people who are researching in the same field.</p>
+                  <p><strong>Question 3 : </strong> How faradayfinder help a user?</p>
+                  <p><strong>Answer : </strong> User can register and can view the public profile of lab and he can also join and see all the activities of a lab.</p>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title"> <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Basic of lab and equipments </a> </h4>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                  <p><strong>Question 1 :</strong> How much equipment a lab can add?</p>
+                  <p><strong>Answer :</strong> As much as he can,right now there is not any limitation.</p>
+                  <p><strong>Question 2 :</strong>Can a user sell a equipment?</p>
+                  <p><strong>Answer : </strong> Yes,he can sell or can give the equipment on rent,he can view all the equipment that was sold and on rented in his profile/my account section.</p>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title"> <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> Basic of event and ticketing </a> </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                  <p><strong>Question 1 :</strong> Can a lab add events?</p>
+                  <p><strong>Answer :</strong> Yes, lab can add events.</p>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingFour">
+                <h4 class="panel-title"> <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"> How faraday finder for research and development? </a> </h4>
+              </div>
+              <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="panel-body">
+                  <p><strong>Question 1 :</strong> How FaradayFinder(FF) helpful?</p>
+                  <p><strong>Answer :</strong> Faraday Finder’s mission is to find and bring together the great minds of our time towards an accelerated exploration of the universe.</p>
+                  <p><strong>Question 2 :</strong> Can a university or industry register with faradayfinder?</p>
+                  <p><strong>Answer :</strong> Faraday Finder intends to conglomerate a vast number of research laboratories from university, public and industrial institutions. Searchable laboratory databases enable time efficiency improvements for prospective students at all levels searching to join a lab</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

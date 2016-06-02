@@ -1,0 +1,109 @@
+{% extends "o/base.html" %}
+{% block content %}
+
+    <!--left container-->
+<div id="left_container">
+
+<div class="content_outer">
+
+<div class="entry_title"><h1><span>register now</span></h1>
+<div class="right_contant">
+You must fill the <span>*</span> required fields</div>
+
+</div>
+
+<div class="common_block">
+<!--top corner-->
+<div class="top_corner"><span></span></div>
+<!--top corner-->
+
+<div class="box_mid_container">
+
+<form role="form" class="row" method="post" action="/accounts/signup/" name="signup_request" id="signup_request">
+    {% csrf_token %}
+<div class="clear">
+
+
+
+<h3><em>It's free..hurry up!</em></h3>
+<p>Get connected with world's largest social network for scientific research laboratories inspired by the genius of the physicist Michael Faraday. See the unseen, find the unfound with us by simply filling the below form.</p>
+
+<p style="padding-top:10px;">
+    <span  id="error_email" style="color: red; font-weight: bold"></span>
+    <span  id="error_first_name" style="color: red; font-weight: bold"></span>
+    <span  id="error_last_name" style="color: red; font-weight: bold"></span>
+    <span  id="error_password" style="color: red; font-weight: bold"></span>
+    <span  id="error_confirm_password" style="color: red; font-weight: bold"></span>
+    <span  id="error_zipcode" style="color: red; font-weight: bold"></span>
+    <span  id="error_tnc" style="color: red; font-weight: bold"></span>
+    <span  id="success_message" style="color: green; font-weight: bold"></span>
+</p>
+
+<div class="from">
+<span class="Redcolor"></span>
+<div class="form_content fullwidth">
+<label>Email <span>*</span></label>
+{{ form.email }}</div>
+
+
+<div class="form_content">
+<label>First Name <span>*</span></label>
+{{ form.first_name }}
+</div>
+
+<div class="form_content">
+<label>Last Name <span>*</span></label>
+{{ form.last_name }}
+</div>
+
+<div class="form_content">
+<label>Choose a password <span>*</span></label>
+{{ form.password }}
+<span class="helptext">Must be 6 - 20 characters</span>
+
+</div>
+
+<div class="form_content">
+<label>Confirm your password <span>*</span></label>
+{{ form.confirm_password }}
+<span class="helptext">Enter password again</span>
+</div>
+
+
+<div class="form_content">
+<label>Zip-Code  <span>*</span></label>
+{{ form.zipcode }}
+</div>
+
+
+
+<div class="clear">
+
+<p class="helptext" style="margin-top:20px;">{{ form.tnc }}I have read and accept <a target="_blank" href="/terms-and-conditions/">Terms & Conditions</a> and<a target="_blank" href="/privacy-and-policy/"> Privacy Policy</a></p>
+</div>
+
+
+
+</div>
+
+<div class="common_block pad_t15">
+<span id="btn_submit"><input type="submit" value="Submit" class="bluebutton" /></span>
+
+</div>
+</div>
+</form>
+
+<div class="clear"></div>
+</div>
+
+<!--bot corner-->
+<div class="bot_corner"><span></span></div>
+<!--bot corner-->
+</div>
+
+</div>
+
+</div>
+<!--left container-->
+    
+{% endblock %}

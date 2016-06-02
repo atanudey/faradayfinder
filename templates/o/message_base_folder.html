@@ -1,0 +1,123 @@
+{% block message_content %}						              	
+{% load i18n postman_tags %}{% load pagination_tags %}{% comment %}
+WARNING: 'pagination_tags' is a name from the django-pagination application.
+For convenience, the design of this template is done with the use of that application.
+Django-postman will still be working, even if that application is not installed, by providing a mock
+for the template tag library.
+If the real implementation is to be used, just make sure that 'pagination' is declared before 'postman'
+in the INSTALLED_APPS setting.
+{% endcomment %}
+<div id="postman" class="messagecontainer">
+	<div>
+		<h3>
+			<em>{% block pm_folder_title %}{% endblock %}</em>
+		</h3>
+		<p>{% block pm_folder_info %}{% endblock %}</p>
+		{% block pm_footer_info %}{% endblock %}
+	</div>
+	{% autopaginate pm_messages %}
+	{% if invalid_page %}
+		<meta http-equiv="REFRESH" content="0;url={{request.path}}">
+	{% else %}
+	{% if pm_messages %}
+	
+	<form action="{% block pm_form_action %}{% endblock %}" method="post">
+	   {% block pm_by_modes %}
+	<div id="pm_by_modes" class="messagetab">
+		<span class="pm_by_mode {% if by_message %} active {% endif %}">{% if by_message %}<a href="{{ by_conversation_url }}">{% endif %}{% trans "by conversation" %}{% if by_message %}</a>{% endif %}</span>
+		<span class="pm_by_mode {% if by_conversation %} active {% endif %}">{% if by_conversation %}<a href="{{ by_message_url }}">{% endif %}{% trans "by message" %}{% if by_conversation %}</a>{% endif %}</span>
+	</div>{% endblock pm_by_modes %}
+		{% csrf_token %}
+		{% block pm_form_buttons %}<ul id="pm_buttons" class="btne">
+		
+		{% block pm_delete_button %}
+		<li class="delete">
+		<i class="fa fa-trash" aria-hidden="true"></i>
+		<span class="tooltiptext">
+		<i class="fa fa-sort-asc" aria-hidden="true"></i>
+		{% trans "Delete" %}</span>
+		<button type="submit" onclick="this.form.action='{% url 'postman:delete' %}'" >{% trans "Delete" %}</button>
+		</li>
+		{% endblock %}
+		
+		
+		{% block pm_archive_button %}
+		<li class="archive">
+		<i class="glyphicon glyphicon-download-alt"></i>
+		<span class="tooltiptext">
+		<i class="fa fa-sort-asc" aria-hidden="true"></i>
+		{% trans "Archive" %}
+		</span>
+		<button type="submit" onclick="this.form.action='{% url 'postman:archive' %}'">{% trans "Archive" %}</button>
+		</li>
+		{% endblock %}
+		
+		
+		{% block pm_undelete_button %}
+		<li class="undelete">
+		 <i class="glyphicon glyphicon-ban-circle"></i>
+		 <span class="tooltiptext">
+		<i class="fa fa-sort-asc" aria-hidden="true"></i>
+		{% trans "Undelete" %}
+		</span>
+		<button type="submit" onclick="this.form.action='{% url 'postman:undelete' %}'">{% trans "Undelete" %}</button>		
+		</li>
+		<li class="delete_forever">
+		<i class="fa fa-trash" aria-hidden="true"></i>		 
+		 <span class="tooltiptext">
+		<i class="fa fa-sort-asc" aria-hidden="true"></i>
+		{% trans "Delete Forever" %}
+		</span>		
+		<button type="submit" onclick="this.form.action='{% url 'postman:delete_forever' %}'">{% trans "Delete Forever" %}</button>
+		</li>
+		{% endblock %}
+		
+		</ul>{% endblock %}
+		<div class="clear"></div>
+	<table id="pm_messages" style="border-collapse:collapse; margin-top:10px;" border="0" cellpadding="5" cellspacing="3">
+	<col width="200">
+                 <col width="80">
+	 <col width="280">
+                 <col width="80">
+	 <thead>
+	
+	  <tr>
+	   <th width="10">{% trans "Action" %}</th>
+	{% block pm_sender_header %}<th width="300"><a href="{% postman_order_by sender %}">{% trans "Sender" %}</a></th>{% endblock %}
+	{% block pm_recipient_header %}<th width="250"><a href="{% postman_order_by recipient %}">{% trans "Recipient" %}</a></th>{% endblock %}
+	   <th width="500"><a href="{% postman_order_by subject %}">{% trans "Subject" %}</a></th>
+	   <th width="200"><a href="{% postman_order_by date %}">{% block pm_date %}{% trans "Date" %}{% endblock %}</a></th>
+	  </tr>
+	 </thead>
+	 <tbody>{% for message in pm_messages %}
+	  <tr>
+	    <td align="center"><input type="checkbox" {% if by_conversation and message.thread_id %}name="tpks" value="{{ message.thread_id }}"{% else %}name="pks" value="{{ message.pk }}"{% endif %} /></td>
+	{% block pm_sender_cell %}   <td  align="center" class="sender_cell">{{ message.obfuscated_sender|or_me:user }}{% if message.count %} ({{ message.count }}){% endif %}</td>{% endblock %}
+	{% block pm_recipient_cell %}   <td  align="center" class="recipient_cell">{{ message.obfuscated_recipient|or_me:user }}{% if message.count %} ({{ message.count }}){% endif %}</td>{% endblock %}
+	   <td  align="left">{% if message.is_new %}<strong>{% endif %}{% if message.is_replied %}<em>{% endif %}
+	{% block pm_subject %}
+	    <a href="{% if by_conversation and message.thread_id %}{% url 'postman:view_conversation' message.thread_id %}{% else %}{% url 'postman:view' message.pk %}{% endif %}?next={{ current_url|urlencode }}">
+	    {% include "postman/inc_subject_ex.html" %}
+	    </a>
+	{% endblock %}
+	   {% if message.is_replied %}</em>{% endif %}{% if message.is_new %}</strong>{% endif %}</td>
+	   <td  align="center">{{ message.sent_at|compact_date:_("g:i A,M j,n/j/y") }}</td>
+	  </tr>{% endfor %}
+	 </tbody>
+	</table>
+	</form>
+	<div class="footerpaginate">
+	{% paginate %}
+	</div>
+	{% else %}
+	<p>{% trans "No messages." %}</p>
+	{% endif %}
+	{% endif %}
+</div>
+{% endblock %}
+<script>
+  $(document).ready(function(){
+   $('.footerpaginate .pagination a.next, .footerpaginate .pagination span.next').append( "<i class='fa fa-chevron-right' aria-hidden='true'></i>" );
+   $('.footerpaginate .pagination span.prev, .footerpaginate .pagination a.prev').append( "<i class='fa fa-chevron-left' aria-hidden='true'></i>" );
+  });
+</script>

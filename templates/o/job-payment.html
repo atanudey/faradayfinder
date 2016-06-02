@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type">
+		<title>Paypal Payment Gateway</title>
+
+	</head>
+	<body>
+		<form action="{{payment_url}}" method="post">
+			<input type="hidden" name="cmd" value="_xclick">
+			<input type="hidden" name = "bn" value="{{payment_bn}}" >
+			<input type="hidden" name="business" value="{{payment_email}}">
+			<input type="hidden" name="item_name" value="{{payment_item_name}}">
+			<input type="hidden" name="item_number" value="{{payment_item_number}}">
+			<input type="hidden" name="amount" value="{{payment_amount}}">
+			<input type="hidden" name="tax" value="{{payment_tax}}">
+			<input type="hidden" name="quantity" value="{{payment_quantity}}">
+			<input type="hidden" name="no_note" value="{{payment_no_note}}">
+			<input type="hidden" name="currency_code" value="{{payment_currency_code}}">
+			<!-- Enable override of buyers's address stored with PayPal . -->
+			<input type="hidden" name="address_override" value="{{payment_address_override}}">
+			<!-- Set variables that override the address stored with PayPal. -->
+			<input type="hidden" name="first_name" value="{{payment_first_name}}">
+			<input type="hidden" name="last_name" value="{{payment_last_name}}">
+			<input type="hidden" name="address1" value="{{payment_address1}}">
+			<input type="hidden" name="city" value="{{payment_city}}">
+			<input type="hidden" name="state" value="{{payment_state}}">
+			<input type="hidden" name="zip" value="{{payment_zip}}">
+			<input type="hidden" name="country" value="{{payment_country}}">
+			<input type="hidden" name="return" value="{% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}/jobs/post-job/">
+			<input type="hidden" name="cancel_return" value="{% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}/jobs/post-job/">
+			<input type="hidden" name="custom" value="{{new_job_id}}">			
+
+			<table align="center">				
+				<tr>
+					<td><strong>Transaction is being processed,</strong></td>
+				</tr>
+				<tr>
+					<td><font color="blue">Please wait ...</font></td>
+				</tr>
+				<tr>
+					<td>(Please do not press 'Refresh' or 'Back' button)</td>
+				</tr>			
+			</table>
+		</form>
+
+		<script type="text/javascript">
+			document.forms[0].submit();
+		</script>
+	</body>
+</html>

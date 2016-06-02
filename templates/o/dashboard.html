@@ -1,0 +1,29 @@
+{% extends "o/base.html" %}
+{% block content %}
+<div class="content_outer">
+<div class="entry_title"><h1><span>My Account</span></h1></div>
+<div class="common_block">
+<!--top corner-->
+ <div class="top_corner"><span></span></div>
+<!--top corner-->
+<div class="box_mid_container">
+<div class="clear">
+{% include "o/include/left_sidebar.html" %}
+<div class=" pic_right_block">
+{% include "o/include/dashboard_menu.html" %}
+<div class="common_block">
+    <div class="info_block">
+    <h1>Dashboard</h1>
+{#    <p>Welcome to your 'Secured Area' area.<br /></p>#}
+    </div>
+</div>
+</div>
+</div>
+</div>
+<!--bot corner-->
+<div class="bot_corner"><span></span></div>
+<!--bot corner-->
+</div>
+</div>
+{% endblock %}
+{% block sidebar %}{% endblock %}

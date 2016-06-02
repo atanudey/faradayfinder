@@ -1,0 +1,72 @@
+<div role="tabpanel" class="tab-pane active" id="home">
+<div class="event_heading">
+  <h2>Personal Information</h2>
+  <div class="label label-success" id="flush_message"></div>
+</div>
+<form role="form" class="row" name="form_edit_profile" id="form_edit_profile" method="post">
+    {% csrf_token %}
+    <div class="form-group col-md-6 col-sm-6">
+        <label for="code">First Name<span class="red">*</span></label>
+        <span id="error_first_name" class="label label-danger"></span>
+        {{ form_edit_profile.first_name }}
+    </div>
+      <div class="form-group sym col-md-6 col-sm-6">
+          <label for="code">Last Name<span class="red">*</span></label>
+          <span id="error_last_name" class="label label-danger"></span>
+          {{ form_edit_profile.last_name }}
+      </div>
+      <div class="form-group sym col-md-6 col-sm-6">
+          <label for="code">DOB</label>
+          <span id="error_dob" class="label label-danger"></span>
+          {{ form_edit_profile.dob }}
+      </div>
+      <div class="form-group sym col-md-6 col-sm-6">
+        <label for="code">&nbsp;</label>
+        &nbsp;
+      </div>
+    <br clear="all">
+   <div class="event_heading">
+      <h2>Contact Information</h2>
+    </div>
+    <div class="form-group col-md-12 col-sm-6">
+        <label for="code">Address</label>
+        <span id="error_address" class="label label-danger"></span>
+        {{ form_edit_profile.address }}
+      </div>
+      <div class="form-group sym col-md-6 col-sm-6">
+          <label for="code">City</label>
+          <span id="error_city" class="label label-danger"></span>
+          {{ form_edit_profile.city }}
+      </div>
+      <div class="form-group col-md-6 col-sm-6">
+          <label for="code">State</label>
+          <span id="error_state" class="label label-danger"></span>
+          {{ form_edit_profile.state }}
+      </div>
+      <div class="form-group col-md-6 col-sm-6">
+          <label for="code">Country<span class="red">*</span></label>
+          <span id="error_country" class="label label-danger"></span>
+          {{ form_edit_profile.country }}
+      </div>
+      <div class="form-group sym col-md-6 col-sm-6">
+          <label for="code">Zip Code<span class="red">*</span></label>
+          <span id="error_zipcode" class="label label-danger"></span>
+          {{ form_edit_profile.zipcode }}
+      </div>
+    <div class="event_heading">
+      <h2>Other Information</h2>
+    </div>
+    <div class="form-group col-md-12 col-sm-12">
+        <label for="code">About Me</label>
+        <span id="error_about_me" class="label label-danger"></span>
+        <p>(Please write something about yourself,It will be publically displayed)</p>
+        {{ form_edit_profile.about_me }}
+      </div>
+      <div class="form-group">
+        <div class="col-sm-10">
+          <span id="btn_edit_profile_submit"><button type="submit" class="btn btn-success">Submit</button></span>
+          <button type="button" class="btn btn-primary">Cancel</button>
+        </div>
+      </div>
+</form>
+</div>

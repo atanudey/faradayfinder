@@ -1,0 +1,95 @@
+{% extends "o/base.html" %}
+{% block content %}
+
+ <div class="content_outer">
+
+<div class="entry_title"><h1><span>My account</span></h1>
+
+
+</div>
+
+
+<div class="common_block">
+<!--top corner-->
+ <div class="top_corner"><span></span></div>
+<!--top corner-->
+
+<div class="box_mid_container">
+<div class="clear">
+
+{% include "o/include/left_sidebar.html" %}
+
+<div class="pic_right_block">
+<div class=" tab">
+ {% include "o/include/dashboard_menu.html" %}
+</div>
+
+
+
+<div class=" tab">
+<div class="product_tab">
+<ul>
+    <li class="active"><a href="/my-labs/">created labs</a></li>
+    <li><a href="#">joined labs</a></li>
+</ul>
+
+</div>
+</div>
+
+
+
+
+<div class="my_account_inmner" id="labs_joined">
+
+{% if labs %}
+                      {% for lab in labs %}
+<div class="listing_main">
+<div class="img_block mrg_bot">
+    {% if lab.photo %}
+  <img src="/media/{{ lab.photo }}" alt="{{ lab.name }}" title="{{ lab.name }}" class="img-thumbnail" style="height: 120px; width:120px">
+  {% else %}
+      <div style="background-color: #cccccc; height: 150px; weight:150px" title="{{ lab.name }}"></div>
+  {% endif %}
+</div>
+<div class="lab_block">
+<h1><a onclick="" href="#">{{ lab.name }}</a></h1>
+<p>({{ lab.institute.name }}- {{ lab.department.name }})</p>
+                            <p>{{ lab.description|truncatewords:50 }}</p>
+{#<p>1 Member<br>#}
+{#PO Box 1127#}
+{#Caboolture#}
+{#QLD,#}
+{#Australia&nbsp;&nbsp;4510<br>#}
+<a onclick="" href="/lab/view/{{ lab.id }}">read more</a> &nbsp;&nbsp;<a onclick="" href="/lab/edit/{{ lab.id }}">edit lab</a>
+
+</p>
+
+<div class="pad_bot"></div>
+</div>
+</div>
+    {% endfor %}
+ {% else %}
+                      <p>You have not created any lab yet.</p>
+                  {% endif %}
+
+
+
+</div>
+
+</div>
+
+
+</div>
+
+<div class="clear"></div>
+</div>
+
+<!--bot corner-->
+<div class="bot_corner"><span></span></div>
+<!--bot corner-->
+</div>
+
+</div>
+<!--featured labs-->
+{% endblock %}
+{% block sidebar %}{% endblock %}

@@ -1,0 +1,96 @@
+<div role="tabpanel" class="tab-pane fade" id="profile">
+    <form method="post" action="/accounts/edit-profile/">
+        {% csrf_token %}
+        <div class="event_heading">
+            <h2>Upload Photo &amp; Resume</h2>
+            <div class="label label-success" id="flush_message_network"></div>
+        </div>
+        <div class="form-group sym up_file col-md-6 col-sm-6">
+            <label for="code">Upload Photo<span class="red">*</span></label>
+            <input type="file" class="form-control">
+        </div>
+        <div class="form-group sym up_file col-md-6 col-sm-6">
+            <label for="code">Upload Resume<span class="red">*</span></label>
+            <input type="file" class="form-control">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">Upload</button></span>
+          <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+
+    </form>
+
+    <form role="form" class="row" name="form_edit_network" id="form_edit_network" method="post">
+        {% csrf_token %}
+    <div class="event_heading">
+      <h2>My Network</h2>
+      <p>Update your network profile with public, if your want to share publically</p>
+    </div>
+    <div class="form-group col-md-3 col-sm-6">
+        <label for="code">Phone<span class="red">*</span></label>
+        <span id="error_phone" class="label label-danger"></span>
+        {{ form_edit_network.phone }}
+      </div>
+      <div class="form-group sym col-md-9 col-sm-6">
+          <label for="code"></label>
+          <span id="error_is_phone_public" class="label label-danger"></span>
+          {{ form_edit_network.is_phone_public }}
+      </div>
+    <div class="form-group col-md-3 col-sm-6">
+        <label for="code">Facebook<span class="red">*</span></label>
+        <span id="error_is_facebook_public" class="label label-danger"></span>
+        {{ form_edit_network.is_facebook_public }}
+      </div>
+      <div class="form-group sym col-md-9 col-sm-6">
+        <label for="code"></label>
+          <span id="error_facebook" class="label label-danger"></span>
+        {{ form_edit_network.facebook }}
+      </div>
+    <div class="form-group col-md-3 col-sm-6">
+        <label for="code">Twitter<span class="red">*</span></label>
+        <span id="error_is_twitter_public" class="label label-danger"></span>
+        {{ form_edit_network.is_twitter_public }}
+      </div>
+      <div class="form-group sym col-md-9 col-sm-6">
+        <label for="code"></label>
+          <span id="error_twitter" class="label label-danger"></span>
+        {{ form_edit_network.twitter }}
+      </div>
+    <div class="form-group col-md-3 col-sm-6">
+        <label for="code">Linkedin<span class="red">*</span></label>
+        <span id="error_is_linkedin_public" class="label label-danger"></span>
+        {{ form_edit_network.is_linkedin_public }}
+      </div>
+      <div class="form-group sym col-md-9 col-sm-6">
+          <label for="code"></label>
+          <span id="error_linkedin" class="label label-danger"></span>
+          {{ form_edit_network.linkedin }}
+      </div>
+    <div class="form-group col-md-3 col-sm-6">
+        <label for="code">Skype<span class="red">*</span></label>
+        <span id="error_is_skype_public" class="label label-danger"></span>
+        {{ form_edit_network.is_skype_public }}
+      </div>
+      <div class="form-group sym col-md-9 col-sm-6">
+          <label for="code"></label>
+          <span id="error_skype" class="label label-danger"></span>
+          {{ form_edit_network.skype }}
+      </div>
+    <div class="form-group col-md-3 col-sm-6 row" role="form">
+        <label for="code">AIM<span class="red">*</span></label>
+        <span id="error_is_aim_public" class="label label-danger"></span>
+        {{ form_edit_network.is_aim_public }}
+      </div>
+      <div class="form-group sym col-md-9 col-sm-6">
+          <label for="code"></label>
+          <span id="error_aim" class="label label-danger"></span>
+          {{ form_edit_network.aim }}
+      </div>
+      <div class="form-group">
+        <div class="col-sm-10">
+          <span id="btn_edit_network_submit"><button type="submit" class="btn btn-success">Submit</button></span>
+          <button type="button" class="btn btn-primary">Cancel</button>
+        </div>
+      </div>
+    </form>
+ </div>

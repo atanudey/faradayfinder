@@ -1,0 +1,74 @@
+{% extends "base_inner.html" %}
+{% block content %}
+<!-- Middle content start here -->
+<div class="container">
+  <div class="row">
+    <div class="login_left col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="login-heading">
+            <h1>My Account</h1>
+          </div>
+        </div>
+       {% include 'common/dashboard_menu.html' %}
+      </div>
+      <div class="login_sec">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="my_profile my_ac_text col-md-4 col-sm-4 ">
+              {% include 'common/dashboard_left_sidebar.html' %}
+            </div>
+            <div class="col-md-8 col-sm-8 pull-right">
+              <div class="event_heading">
+                <h2>Projects Board</h2>
+                {% if flush_message %}
+                    <div class="alert alert-success" role="alert">{{ flush_message }}</div>
+                {% endif %}
+              </div>
+              <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active"><a href="#my_projects" aria-controls="my_projects" role="tab" data-toggle="tab">Project created by me</a></li>
+                  <li role="presentation"><a href="#projects_joined" aria-controls="lab_joined" role="tab" data-toggle="tab">Project I have joined</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="my_projects">
+                  {% if projects %}
+                      {% for project in projects %}
+                        <div class="row tab-bottom-sap">
+                          <div class="col-md-3 col-sm-3 col-xs-3 thumb-sml">
+                              {% if project.photo %}
+                              <img src="/media/{{ project.photo }}" alt="{{ project.name }}" title="{{ project.name }}" class="img-thumbnail">
+                              {% else %}
+                                  <div style="background-color: #cccccc; height: 150px; weight:150px" title="{{ project.name }}"></div>
+                              {% endif %}
+                          </div>
+                          <div class="col-md-9 col-sm-9 col-xs-9 tab-text">
+                            <h2>{{ project.name }}</h2>
+                            {%  if project.lab.name  %}
+                            <p>Lab- {{ project.lab.name }}</p>
+                            {% endif %}
+                            <p>{{ project.description|truncatewords:80 }}</p>
+                            <button type="button" class="btn btn-primary btn-xs" onclick="javascript:window.location='/project/view/{{ project.id }}'">View Project</button>
+                            <button type="button" class="btn btn-success btn-xs" onclick="javascript:window.location='/project/edit/{{ project.id }}'">Edit Project</button>
+                          </div>
+                        </div>
+                      {% endfor %}
+                   {% else %}
+                      <p>You have not created any lab yet.</p>
+                  {% endif %}
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="projects_joined">
+                      You have not joined any project yet.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base_inner.html" %}
+{% block content %}
+<!-- Middle content start here -->
+<div class="container">
+  <div class="row">
+    <div class="login_left col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="login-heading">
+            <h1>My Account</h1>
+          </div>
+        </div>
+       {% include 'common/dashboard_menu.html' %}
+      </div>
+      <div class="login_sec">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="my_profile my_ac_text col-md-4 col-sm-4 ">
+              {% include 'common/dashboard_left_sidebar.html' %}
+            </div>
+            <div class="col-md-8 col-sm-8 pull-right">
+              <div class="event_heading">
+                <h2>Labs Board</h2>
+                {% if flush_message %}
+                    <div class="alert alert-success" role="alert">{{ flush_message }}</div>
+                {% endif %}
+              </div>
+              <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active"><a href="#my_labs" aria-controls="my_labs" role="tab" data-toggle="tab">Lab created by me</a></li>
+                  <li role="presentation"><a href="#lab_joined" aria-controls="lab_joined" role="tab" data-toggle="tab">Labs I have joined</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="my_labs">
+                  {% if labs %}
+                      {% for lab in labs %}
+                        <div class="row tab-bottom-sap">
+                          <div class="col-md-3 col-sm-3 col-xs-3 thumb-sml">
+                              {% if lab.photo %}
+                              <img src="/media/{{ lab.photo }}" alt="{{ lab.name }}" title="{{ lab.name }}" class="img-thumbnail">
+                              {% else %}
+                                  <div style="background-color: #cccccc; height: 150px; weight:150px" title="{{ lab.name }}"></div>
+                              {% endif %}
+                          </div>
+                          <div class="col-md-9 col-sm-9 col-xs-9 tab-text">
+                            <h2>{{ lab.name }}</h2>
+                            <p>({{ lab.institute.name }}- {{ lab.department.name }})</p>
+                            <p>{{ lab.description|truncatewords:80 }}</p>
+                            <button type="button" class="btn btn-primary btn-xs" onclick="javascript:window.location='/lab/view/{{ lab.id }}'">View Lab</button>
+                            <button type="button" class="btn btn-success btn-xs" onclick="javascript:window.location='/lab/edit/{{ lab.id }}'">Edit Lab</button>
+                          </div>
+                        </div>
+                      {% endfor %}
+                   {% else %}
+                      <p>You have not created any lab yet.</p>
+                  {% endif %}
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="lab_joined">
+                      {% if labs_joined %}
+                          {% for lab_joined in labs_joined %}
+                            <div class="row tab-bottom-sap">
+                              <div class="col-md-3 col-sm-3 col-xs-3 thumb-sml"><img src="/static/images/event_pic.png" alt="..." class="img-thumbnail"></div>
+                              <div class="col-md-9 col-sm-9 col-xs-9 tab-text">
+                                <h2>Laboratorie..</h2>
+                                <p>10636 arundel avelas vages, navada USA 89135</p>
+                                <a href="#">Read More</a> </div>
+                            </div>
+                          {% endfor %}
+                      {% else %}
+                          <p>You have not joined any lab yet.</p>
+                      {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

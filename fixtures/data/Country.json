@@ -1,0 +1,1717 @@
+[
+    {
+        "fields": {
+            "code": "AF"
+        },
+        "model": "custom_user.country",
+        "pk": "Afghanistan"
+    },
+    {
+        "fields": {
+            "code": "AX"
+        },
+        "model": "custom_user.country",
+        "pk": "Aland Islands"
+    },
+    {
+        "fields": {
+            "code": "AL"
+        },
+        "model": "custom_user.country",
+        "pk": "Albania"
+    },
+    {
+        "fields": {
+            "code": "DZ"
+        },
+        "model": "custom_user.country",
+        "pk": "Algeria"
+    },
+    {
+        "fields": {
+            "code": "AS"
+        },
+        "model": "custom_user.country",
+        "pk": "American Samoa"
+    },
+    {
+        "fields": {
+            "code": "AD"
+        },
+        "model": "custom_user.country",
+        "pk": "AndorrA"
+    },
+    {
+        "fields": {
+            "code": "AO"
+        },
+        "model": "custom_user.country",
+        "pk": "Angola"
+    },
+    {
+        "fields": {
+            "code": "AI"
+        },
+        "model": "custom_user.country",
+        "pk": "Anguilla"
+    },
+    {
+        "fields": {
+            "code": "AQ"
+        },
+        "model": "custom_user.country",
+        "pk": "Antarctica"
+    },
+    {
+        "fields": {
+            "code": "AG"
+        },
+        "model": "custom_user.country",
+        "pk": "Antigua and Barbuda"
+    },
+    {
+        "fields": {
+            "code": "AR"
+        },
+        "model": "custom_user.country",
+        "pk": "Argentina"
+    },
+    {
+        "fields": {
+            "code": "AM"
+        },
+        "model": "custom_user.country",
+        "pk": "Armenia"
+    },
+    {
+        "fields": {
+            "code": "AW"
+        },
+        "model": "custom_user.country",
+        "pk": "Aruba"
+    },
+    {
+        "fields": {
+            "code": "AU"
+        },
+        "model": "custom_user.country",
+        "pk": "Australia"
+    },
+    {
+        "fields": {
+            "code": "AT"
+        },
+        "model": "custom_user.country",
+        "pk": "Austria"
+    },
+    {
+        "fields": {
+            "code": "AZ"
+        },
+        "model": "custom_user.country",
+        "pk": "Azerbaijan"
+    },
+    {
+        "fields": {
+            "code": "BS"
+        },
+        "model": "custom_user.country",
+        "pk": "Bahamas"
+    },
+    {
+        "fields": {
+            "code": "BH"
+        },
+        "model": "custom_user.country",
+        "pk": "Bahrain"
+    },
+    {
+        "fields": {
+            "code": "BD"
+        },
+        "model": "custom_user.country",
+        "pk": "Bangladesh"
+    },
+    {
+        "fields": {
+            "code": "BB"
+        },
+        "model": "custom_user.country",
+        "pk": "Barbados"
+    },
+    {
+        "fields": {
+            "code": "BY"
+        },
+        "model": "custom_user.country",
+        "pk": "Belarus"
+    },
+    {
+        "fields": {
+            "code": "BE"
+        },
+        "model": "custom_user.country",
+        "pk": "Belgium"
+    },
+    {
+        "fields": {
+            "code": "BZ"
+        },
+        "model": "custom_user.country",
+        "pk": "Belize"
+    },
+    {
+        "fields": {
+            "code": "BJ"
+        },
+        "model": "custom_user.country",
+        "pk": "Benin"
+    },
+    {
+        "fields": {
+            "code": "BM"
+        },
+        "model": "custom_user.country",
+        "pk": "Bermuda"
+    },
+    {
+        "fields": {
+            "code": "BT"
+        },
+        "model": "custom_user.country",
+        "pk": "Bhutan"
+    },
+    {
+        "fields": {
+            "code": "BO"
+        },
+        "model": "custom_user.country",
+        "pk": "Bolivia"
+    },
+    {
+        "fields": {
+            "code": "BA"
+        },
+        "model": "custom_user.country",
+        "pk": "Bosnia and Herzegovina"
+    },
+    {
+        "fields": {
+            "code": "BW"
+        },
+        "model": "custom_user.country",
+        "pk": "Botswana"
+    },
+    {
+        "fields": {
+            "code": "BV"
+        },
+        "model": "custom_user.country",
+        "pk": "Bouvet Island"
+    },
+    {
+        "fields": {
+            "code": "BR"
+        },
+        "model": "custom_user.country",
+        "pk": "Brazil"
+    },
+    {
+        "fields": {
+            "code": "IO"
+        },
+        "model": "custom_user.country",
+        "pk": "British Indian Ocean Territory"
+    },
+    {
+        "fields": {
+            "code": "BN"
+        },
+        "model": "custom_user.country",
+        "pk": "Brunei Darussalam"
+    },
+    {
+        "fields": {
+            "code": "BG"
+        },
+        "model": "custom_user.country",
+        "pk": "Bulgaria"
+    },
+    {
+        "fields": {
+            "code": "BF"
+        },
+        "model": "custom_user.country",
+        "pk": "Burkina Faso"
+    },
+    {
+        "fields": {
+            "code": "BI"
+        },
+        "model": "custom_user.country",
+        "pk": "Burundi"
+    },
+    {
+        "fields": {
+            "code": "KH"
+        },
+        "model": "custom_user.country",
+        "pk": "Cambodia"
+    },
+    {
+        "fields": {
+            "code": "CM"
+        },
+        "model": "custom_user.country",
+        "pk": "Cameroon"
+    },
+    {
+        "fields": {
+            "code": "CA"
+        },
+        "model": "custom_user.country",
+        "pk": "Canada"
+    },
+    {
+        "fields": {
+            "code": "CV"
+        },
+        "model": "custom_user.country",
+        "pk": "Cape Verde"
+    },
+    {
+        "fields": {
+            "code": "KY"
+        },
+        "model": "custom_user.country",
+        "pk": "Cayman Islands"
+    },
+    {
+        "fields": {
+            "code": "CF"
+        },
+        "model": "custom_user.country",
+        "pk": "Central African Republic"
+    },
+    {
+        "fields": {
+            "code": "TD"
+        },
+        "model": "custom_user.country",
+        "pk": "Chad"
+    },
+    {
+        "fields": {
+            "code": "CL"
+        },
+        "model": "custom_user.country",
+        "pk": "Chile"
+    },
+    {
+        "fields": {
+            "code": "CN"
+        },
+        "model": "custom_user.country",
+        "pk": "China"
+    },
+    {
+        "fields": {
+            "code": "CX"
+        },
+        "model": "custom_user.country",
+        "pk": "Christmas Island"
+    },
+    {
+        "fields": {
+            "code": "CC"
+        },
+        "model": "custom_user.country",
+        "pk": "Cocos (Keeling) Islands"
+    },
+    {
+        "fields": {
+            "code": "CO"
+        },
+        "model": "custom_user.country",
+        "pk": "Colombia"
+    },
+    {
+        "fields": {
+            "code": "KM"
+        },
+        "model": "custom_user.country",
+        "pk": "Comoros"
+    },
+    {
+        "fields": {
+            "code": "CG"
+        },
+        "model": "custom_user.country",
+        "pk": "Congo"
+    },
+    {
+        "fields": {
+            "code": "CD"
+        },
+        "model": "custom_user.country",
+        "pk": "Congo, Democratic Republic"
+    },
+    {
+        "fields": {
+            "code": "CK"
+        },
+        "model": "custom_user.country",
+        "pk": "Cook Islands"
+    },
+    {
+        "fields": {
+            "code": "CR"
+        },
+        "model": "custom_user.country",
+        "pk": "Costa Rica"
+    },
+    {
+        "fields": {
+            "code": "CI"
+        },
+        "model": "custom_user.country",
+        "pk": "Cote D\"Ivoire"
+    },
+    {
+        "fields": {
+            "code": "HR"
+        },
+        "model": "custom_user.country",
+        "pk": "Croatia"
+    },
+    {
+        "fields": {
+            "code": "CU"
+        },
+        "model": "custom_user.country",
+        "pk": "Cuba"
+    },
+    {
+        "fields": {
+            "code": "CY"
+        },
+        "model": "custom_user.country",
+        "pk": "Cyprus"
+    },
+    {
+        "fields": {
+            "code": "CZ"
+        },
+        "model": "custom_user.country",
+        "pk": "Czech Republic"
+    },
+    {
+        "fields": {
+            "code": "DK"
+        },
+        "model": "custom_user.country",
+        "pk": "Denmark"
+    },
+    {
+        "fields": {
+            "code": "DJ"
+        },
+        "model": "custom_user.country",
+        "pk": "Djibouti"
+    },
+    {
+        "fields": {
+            "code": "DM"
+        },
+        "model": "custom_user.country",
+        "pk": "Dominica"
+    },
+    {
+        "fields": {
+            "code": "DO"
+        },
+        "model": "custom_user.country",
+        "pk": "Dominican Republic"
+    },
+    {
+        "fields": {
+            "code": "EC"
+        },
+        "model": "custom_user.country",
+        "pk": "Ecuador"
+    },
+    {
+        "fields": {
+            "code": "EG"
+        },
+        "model": "custom_user.country",
+        "pk": "Egypt"
+    },
+    {
+        "fields": {
+            "code": "SV"
+        },
+        "model": "custom_user.country",
+        "pk": "El Salvador"
+    },
+    {
+        "fields": {
+            "code": "GQ"
+        },
+        "model": "custom_user.country",
+        "pk": "Equatorial Guinea"
+    },
+    {
+        "fields": {
+            "code": "ER"
+        },
+        "model": "custom_user.country",
+        "pk": "Eritrea"
+    },
+    {
+        "fields": {
+            "code": "EE"
+        },
+        "model": "custom_user.country",
+        "pk": "Estonia"
+    },
+    {
+        "fields": {
+            "code": "ET"
+        },
+        "model": "custom_user.country",
+        "pk": "Ethiopia"
+    },
+    {
+        "fields": {
+            "code": "FK"
+        },
+        "model": "custom_user.country",
+        "pk": "Falkland Islands (Malvinas)"
+    },
+    {
+        "fields": {
+            "code": "FO"
+        },
+        "model": "custom_user.country",
+        "pk": "Faroe Islands"
+    },
+    {
+        "fields": {
+            "code": "FJ"
+        },
+        "model": "custom_user.country",
+        "pk": "Fiji"
+    },
+    {
+        "fields": {
+            "code": "FI"
+        },
+        "model": "custom_user.country",
+        "pk": "Finland"
+    },
+    {
+        "fields": {
+            "code": "FR"
+        },
+        "model": "custom_user.country",
+        "pk": "France"
+    },
+    {
+        "fields": {
+            "code": "GF"
+        },
+        "model": "custom_user.country",
+        "pk": "French Guiana"
+    },
+    {
+        "fields": {
+            "code": "PF"
+        },
+        "model": "custom_user.country",
+        "pk": "French Polynesia"
+    },
+    {
+        "fields": {
+            "code": "TF"
+        },
+        "model": "custom_user.country",
+        "pk": "French Southern Territories"
+    },
+    {
+        "fields": {
+            "code": "GA"
+        },
+        "model": "custom_user.country",
+        "pk": "Gabon"
+    },
+    {
+        "fields": {
+            "code": "GM"
+        },
+        "model": "custom_user.country",
+        "pk": "Gambia"
+    },
+    {
+        "fields": {
+            "code": "GE"
+        },
+        "model": "custom_user.country",
+        "pk": "Georgia"
+    },
+    {
+        "fields": {
+            "code": "DE"
+        },
+        "model": "custom_user.country",
+        "pk": "Germany"
+    },
+    {
+        "fields": {
+            "code": "GH"
+        },
+        "model": "custom_user.country",
+        "pk": "Ghana"
+    },
+    {
+        "fields": {
+            "code": "GI"
+        },
+        "model": "custom_user.country",
+        "pk": "Gibraltar"
+    },
+    {
+        "fields": {
+            "code": "GR"
+        },
+        "model": "custom_user.country",
+        "pk": "Greece"
+    },
+    {
+        "fields": {
+            "code": "GL"
+        },
+        "model": "custom_user.country",
+        "pk": "Greenland"
+    },
+    {
+        "fields": {
+            "code": "GD"
+        },
+        "model": "custom_user.country",
+        "pk": "Grenada"
+    },
+    {
+        "fields": {
+            "code": "GP"
+        },
+        "model": "custom_user.country",
+        "pk": "Guadeloupe"
+    },
+    {
+        "fields": {
+            "code": "GU"
+        },
+        "model": "custom_user.country",
+        "pk": "Guam"
+    },
+    {
+        "fields": {
+            "code": "GT"
+        },
+        "model": "custom_user.country",
+        "pk": "Guatemala"
+    },
+    {
+        "fields": {
+            "code": "GG"
+        },
+        "model": "custom_user.country",
+        "pk": "Guernsey"
+    },
+    {
+        "fields": {
+            "code": "GN"
+        },
+        "model": "custom_user.country",
+        "pk": "Guinea"
+    },
+    {
+        "fields": {
+            "code": "GW"
+        },
+        "model": "custom_user.country",
+        "pk": "Guinea-Bissau"
+    },
+    {
+        "fields": {
+            "code": "GY"
+        },
+        "model": "custom_user.country",
+        "pk": "Guyana"
+    },
+    {
+        "fields": {
+            "code": "HT"
+        },
+        "model": "custom_user.country",
+        "pk": "Haiti"
+    },
+    {
+        "fields": {
+            "code": "HM"
+        },
+        "model": "custom_user.country",
+        "pk": "Heard Island and Mcdonald Islands"
+    },
+    {
+        "fields": {
+            "code": "VA"
+        },
+        "model": "custom_user.country",
+        "pk": "Holy See (Vatican City State)"
+    },
+    {
+        "fields": {
+            "code": "HN"
+        },
+        "model": "custom_user.country",
+        "pk": "Honduras"
+    },
+    {
+        "fields": {
+            "code": "HK"
+        },
+        "model": "custom_user.country",
+        "pk": "Hong Kong"
+    },
+    {
+        "fields": {
+            "code": "HU"
+        },
+        "model": "custom_user.country",
+        "pk": "Hungary"
+    },
+    {
+        "fields": {
+            "code": "IS"
+        },
+        "model": "custom_user.country",
+        "pk": "Iceland"
+    },
+    {
+        "fields": {
+            "code": "IN"
+        },
+        "model": "custom_user.country",
+        "pk": "India"
+    },
+    {
+        "fields": {
+            "code": "ID"
+        },
+        "model": "custom_user.country",
+        "pk": "Indonesia"
+    },
+    {
+        "fields": {
+            "code": "IR"
+        },
+        "model": "custom_user.country",
+        "pk": "Iran"
+    },
+    {
+        "fields": {
+            "code": "IQ"
+        },
+        "model": "custom_user.country",
+        "pk": "Iraq"
+    },
+    {
+        "fields": {
+            "code": "IE"
+        },
+        "model": "custom_user.country",
+        "pk": "Ireland"
+    },
+    {
+        "fields": {
+            "code": "IM"
+        },
+        "model": "custom_user.country",
+        "pk": "Isle of Man"
+    },
+    {
+        "fields": {
+            "code": "IL"
+        },
+        "model": "custom_user.country",
+        "pk": "Israel"
+    },
+    {
+        "fields": {
+            "code": "IT"
+        },
+        "model": "custom_user.country",
+        "pk": "Italy"
+    },
+    {
+        "fields": {
+            "code": "JM"
+        },
+        "model": "custom_user.country",
+        "pk": "Jamaica"
+    },
+    {
+        "fields": {
+            "code": "JP"
+        },
+        "model": "custom_user.country",
+        "pk": "Japan"
+    },
+    {
+        "fields": {
+            "code": "JE"
+        },
+        "model": "custom_user.country",
+        "pk": "Jersey"
+    },
+    {
+        "fields": {
+            "code": "JO"
+        },
+        "model": "custom_user.country",
+        "pk": "Jordan"
+    },
+    {
+        "fields": {
+            "code": "KZ"
+        },
+        "model": "custom_user.country",
+        "pk": "Kazakhstan"
+    },
+    {
+        "fields": {
+            "code": "KE"
+        },
+        "model": "custom_user.country",
+        "pk": "Kenya"
+    },
+    {
+        "fields": {
+            "code": "KI"
+        },
+        "model": "custom_user.country",
+        "pk": "Kiribati"
+    },
+    {
+        "fields": {
+            "code": "KP"
+        },
+        "model": "custom_user.country",
+        "pk": "Korea (North)"
+    },
+    {
+        "fields": {
+            "code": "KR"
+        },
+        "model": "custom_user.country",
+        "pk": "Korea (South)"
+    },
+    {
+        "fields": {
+            "code": "XK"
+        },
+        "model": "custom_user.country",
+        "pk": "Kosovo"
+    },
+    {
+        "fields": {
+            "code": "KW"
+        },
+        "model": "custom_user.country",
+        "pk": "Kuwait"
+    },
+    {
+        "fields": {
+            "code": "KG"
+        },
+        "model": "custom_user.country",
+        "pk": "Kyrgyzstan"
+    },
+    {
+        "fields": {
+            "code": "LA"
+        },
+        "model": "custom_user.country",
+        "pk": "Laos"
+    },
+    {
+        "fields": {
+            "code": "LV"
+        },
+        "model": "custom_user.country",
+        "pk": "Latvia"
+    },
+    {
+        "fields": {
+            "code": "LB"
+        },
+        "model": "custom_user.country",
+        "pk": "Lebanon"
+    },
+    {
+        "fields": {
+            "code": "LS"
+        },
+        "model": "custom_user.country",
+        "pk": "Lesotho"
+    },
+    {
+        "fields": {
+            "code": "LR"
+        },
+        "model": "custom_user.country",
+        "pk": "Liberia"
+    },
+    {
+        "fields": {
+            "code": "LY"
+        },
+        "model": "custom_user.country",
+        "pk": "Libyan Arab Jamahiriya"
+    },
+    {
+        "fields": {
+            "code": "LI"
+        },
+        "model": "custom_user.country",
+        "pk": "Liechtenstein"
+    },
+    {
+        "fields": {
+            "code": "LT"
+        },
+        "model": "custom_user.country",
+        "pk": "Lithuania"
+    },
+    {
+        "fields": {
+            "code": "LU"
+        },
+        "model": "custom_user.country",
+        "pk": "Luxembourg"
+    },
+    {
+        "fields": {
+            "code": "MO"
+        },
+        "model": "custom_user.country",
+        "pk": "Macao"
+    },
+    {
+        "fields": {
+            "code": "MK"
+        },
+        "model": "custom_user.country",
+        "pk": "Macedonia"
+    },
+    {
+        "fields": {
+            "code": "MG"
+        },
+        "model": "custom_user.country",
+        "pk": "Madagascar"
+    },
+    {
+        "fields": {
+            "code": "MW"
+        },
+        "model": "custom_user.country",
+        "pk": "Malawi"
+    },
+    {
+        "fields": {
+            "code": "MY"
+        },
+        "model": "custom_user.country",
+        "pk": "Malaysia"
+    },
+    {
+        "fields": {
+            "code": "MV"
+        },
+        "model": "custom_user.country",
+        "pk": "Maldives"
+    },
+    {
+        "fields": {
+            "code": "ML"
+        },
+        "model": "custom_user.country",
+        "pk": "Mali"
+    },
+    {
+        "fields": {
+            "code": "MT"
+        },
+        "model": "custom_user.country",
+        "pk": "Malta"
+    },
+    {
+        "fields": {
+            "code": "MH"
+        },
+        "model": "custom_user.country",
+        "pk": "Marshall Islands"
+    },
+    {
+        "fields": {
+            "code": "MQ"
+        },
+        "model": "custom_user.country",
+        "pk": "Martinique"
+    },
+    {
+        "fields": {
+            "code": "MR"
+        },
+        "model": "custom_user.country",
+        "pk": "Mauritania"
+    },
+    {
+        "fields": {
+            "code": "MU"
+        },
+        "model": "custom_user.country",
+        "pk": "Mauritius"
+    },
+    {
+        "fields": {
+            "code": "YT"
+        },
+        "model": "custom_user.country",
+        "pk": "Mayotte"
+    },
+    {
+        "fields": {
+            "code": "MX"
+        },
+        "model": "custom_user.country",
+        "pk": "Mexico"
+    },
+    {
+        "fields": {
+            "code": "FM"
+        },
+        "model": "custom_user.country",
+        "pk": "Micronesia"
+    },
+    {
+        "fields": {
+            "code": "MD"
+        },
+        "model": "custom_user.country",
+        "pk": "Moldova"
+    },
+    {
+        "fields": {
+            "code": "MC"
+        },
+        "model": "custom_user.country",
+        "pk": "Monaco"
+    },
+    {
+        "fields": {
+            "code": "MN"
+        },
+        "model": "custom_user.country",
+        "pk": "Mongolia"
+    },
+    {
+        "fields": {
+            "code": "ME"
+        },
+        "model": "custom_user.country",
+        "pk": "Montenegro"
+    },
+    {
+        "fields": {
+            "code": "MS"
+        },
+        "model": "custom_user.country",
+        "pk": "Montserrat"
+    },
+    {
+        "fields": {
+            "code": "MA"
+        },
+        "model": "custom_user.country",
+        "pk": "Morocco"
+    },
+    {
+        "fields": {
+            "code": "MZ"
+        },
+        "model": "custom_user.country",
+        "pk": "Mozambique"
+    },
+    {
+        "fields": {
+            "code": "MM"
+        },
+        "model": "custom_user.country",
+        "pk": "Myanmar"
+    },
+    {
+        "fields": {
+            "code": "NA"
+        },
+        "model": "custom_user.country",
+        "pk": "Namibia"
+    },
+    {
+        "fields": {
+            "code": "NR"
+        },
+        "model": "custom_user.country",
+        "pk": "Nauru"
+    },
+    {
+        "fields": {
+            "code": "NP"
+        },
+        "model": "custom_user.country",
+        "pk": "Nepal"
+    },
+    {
+        "fields": {
+            "code": "NL"
+        },
+        "model": "custom_user.country",
+        "pk": "Netherlands"
+    },
+    {
+        "fields": {
+            "code": "AN"
+        },
+        "model": "custom_user.country",
+        "pk": "Netherlands Antilles"
+    },
+    {
+        "fields": {
+            "code": "NC"
+        },
+        "model": "custom_user.country",
+        "pk": "New Caledonia"
+    },
+    {
+        "fields": {
+            "code": "NZ"
+        },
+        "model": "custom_user.country",
+        "pk": "New Zealand"
+    },
+    {
+        "fields": {
+            "code": "NI"
+        },
+        "model": "custom_user.country",
+        "pk": "Nicaragua"
+    },
+    {
+        "fields": {
+            "code": "NE"
+        },
+        "model": "custom_user.country",
+        "pk": "Niger"
+    },
+    {
+        "fields": {
+            "code": "NG"
+        },
+        "model": "custom_user.country",
+        "pk": "Nigeria"
+    },
+    {
+        "fields": {
+            "code": "NU"
+        },
+        "model": "custom_user.country",
+        "pk": "Niue"
+    },
+    {
+        "fields": {
+            "code": "NF"
+        },
+        "model": "custom_user.country",
+        "pk": "Norfolk Island"
+    },
+    {
+        "fields": {
+            "code": "MP"
+        },
+        "model": "custom_user.country",
+        "pk": "Northern Mariana Islands"
+    },
+    {
+        "fields": {
+            "code": "NO"
+        },
+        "model": "custom_user.country",
+        "pk": "Norway"
+    },
+    {
+        "fields": {
+            "code": "OM"
+        },
+        "model": "custom_user.country",
+        "pk": "Oman"
+    },
+    {
+        "fields": {
+            "code": "PK"
+        },
+        "model": "custom_user.country",
+        "pk": "Pakistan"
+    },
+    {
+        "fields": {
+            "code": "PW"
+        },
+        "model": "custom_user.country",
+        "pk": "Palau"
+    },
+    {
+        "fields": {
+            "code": "PS"
+        },
+        "model": "custom_user.country",
+        "pk": "Palestinian Territory, Occupied"
+    },
+    {
+        "fields": {
+            "code": "PA"
+        },
+        "model": "custom_user.country",
+        "pk": "Panama"
+    },
+    {
+        "fields": {
+            "code": "PG"
+        },
+        "model": "custom_user.country",
+        "pk": "Papua New Guinea"
+    },
+    {
+        "fields": {
+            "code": "PY"
+        },
+        "model": "custom_user.country",
+        "pk": "Paraguay"
+    },
+    {
+        "fields": {
+            "code": "PE"
+        },
+        "model": "custom_user.country",
+        "pk": "Peru"
+    },
+    {
+        "fields": {
+            "code": "PH"
+        },
+        "model": "custom_user.country",
+        "pk": "Philippines"
+    },
+    {
+        "fields": {
+            "code": "PN"
+        },
+        "model": "custom_user.country",
+        "pk": "Pitcairn"
+    },
+    {
+        "fields": {
+            "code": "PL"
+        },
+        "model": "custom_user.country",
+        "pk": "Poland"
+    },
+    {
+        "fields": {
+            "code": "PT"
+        },
+        "model": "custom_user.country",
+        "pk": "Portugal"
+    },
+    {
+        "fields": {
+            "code": "PR"
+        },
+        "model": "custom_user.country",
+        "pk": "Puerto Rico"
+    },
+    {
+        "fields": {
+            "code": "QA"
+        },
+        "model": "custom_user.country",
+        "pk": "Qatar"
+    },
+    {
+        "fields": {
+            "code": "RE"
+        },
+        "model": "custom_user.country",
+        "pk": "Reunion"
+    },
+    {
+        "fields": {
+            "code": "RO"
+        },
+        "model": "custom_user.country",
+        "pk": "Romania"
+    },
+    {
+        "fields": {
+            "code": "RU"
+        },
+        "model": "custom_user.country",
+        "pk": "Russian Federation"
+    },
+    {
+        "fields": {
+            "code": "RW"
+        },
+        "model": "custom_user.country",
+        "pk": "Rwanda"
+    },
+    {
+        "fields": {
+            "code": "SH"
+        },
+        "model": "custom_user.country",
+        "pk": "Saint Helena"
+    },
+    {
+        "fields": {
+            "code": "KN"
+        },
+        "model": "custom_user.country",
+        "pk": "Saint Kitts and Nevis"
+    },
+    {
+        "fields": {
+            "code": "LC"
+        },
+        "model": "custom_user.country",
+        "pk": "Saint Lucia"
+    },
+    {
+        "fields": {
+            "code": "PM"
+        },
+        "model": "custom_user.country",
+        "pk": "Saint Pierre and Miquelon"
+    },
+    {
+        "fields": {
+            "code": "VC"
+        },
+        "model": "custom_user.country",
+        "pk": "Saint Vincent and the Grenadines"
+    },
+    {
+        "fields": {
+            "code": "WS"
+        },
+        "model": "custom_user.country",
+        "pk": "Samoa"
+    },
+    {
+        "fields": {
+            "code": "SM"
+        },
+        "model": "custom_user.country",
+        "pk": "San Marino"
+    },
+    {
+        "fields": {
+            "code": "ST"
+        },
+        "model": "custom_user.country",
+        "pk": "Sao Tome and Principe"
+    },
+    {
+        "fields": {
+            "code": "SA"
+        },
+        "model": "custom_user.country",
+        "pk": "Saudi Arabia"
+    },
+    {
+        "fields": {
+            "code": "SN"
+        },
+        "model": "custom_user.country",
+        "pk": "Senegal"
+    },
+    {
+        "fields": {
+            "code": "RS"
+        },
+        "model": "custom_user.country",
+        "pk": "Serbia"
+    },
+    {
+        "fields": {
+            "code": "SC"
+        },
+        "model": "custom_user.country",
+        "pk": "Seychelles"
+    },
+    {
+        "fields": {
+            "code": "SL"
+        },
+        "model": "custom_user.country",
+        "pk": "Sierra Leone"
+    },
+    {
+        "fields": {
+            "code": "SG"
+        },
+        "model": "custom_user.country",
+        "pk": "Singapore"
+    },
+    {
+        "fields": {
+            "code": "SK"
+        },
+        "model": "custom_user.country",
+        "pk": "Slovakia"
+    },
+    {
+        "fields": {
+            "code": "SI"
+        },
+        "model": "custom_user.country",
+        "pk": "Slovenia"
+    },
+    {
+        "fields": {
+            "code": "SB"
+        },
+        "model": "custom_user.country",
+        "pk": "Solomon Islands"
+    },
+    {
+        "fields": {
+            "code": "SO"
+        },
+        "model": "custom_user.country",
+        "pk": "Somalia"
+    },
+    {
+        "fields": {
+            "code": "ZA"
+        },
+        "model": "custom_user.country",
+        "pk": "South Africa"
+    },
+    {
+        "fields": {
+            "code": "GS"
+        },
+        "model": "custom_user.country",
+        "pk": "South Georgia and the South Sandwich Islands"
+    },
+    {
+        "fields": {
+            "code": "ES"
+        },
+        "model": "custom_user.country",
+        "pk": "Spain"
+    },
+    {
+        "fields": {
+            "code": "LK"
+        },
+        "model": "custom_user.country",
+        "pk": "Sri Lanka"
+    },
+    {
+        "fields": {
+            "code": "SD"
+        },
+        "model": "custom_user.country",
+        "pk": "Sudan"
+    },
+    {
+        "fields": {
+            "code": "SR"
+        },
+        "model": "custom_user.country",
+        "pk": "Suriname"
+    },
+    {
+        "fields": {
+            "code": "SJ"
+        },
+        "model": "custom_user.country",
+        "pk": "Svalbard and Jan Mayen"
+    },
+    {
+        "fields": {
+            "code": "SZ"
+        },
+        "model": "custom_user.country",
+        "pk": "Swaziland"
+    },
+    {
+        "fields": {
+            "code": "SE"
+        },
+        "model": "custom_user.country",
+        "pk": "Sweden"
+    },
+    {
+        "fields": {
+            "code": "CH"
+        },
+        "model": "custom_user.country",
+        "pk": "Switzerland"
+    },
+    {
+        "fields": {
+            "code": "SY"
+        },
+        "model": "custom_user.country",
+        "pk": "Syrian Arab Republic"
+    },
+    {
+        "fields": {
+            "code": "TW"
+        },
+        "model": "custom_user.country",
+        "pk": "Taiwan, Province of China"
+    },
+    {
+        "fields": {
+            "code": "TJ"
+        },
+        "model": "custom_user.country",
+        "pk": "Tajikistan"
+    },
+    {
+        "fields": {
+            "code": "TZ"
+        },
+        "model": "custom_user.country",
+        "pk": "Tanzania"
+    },
+    {
+        "fields": {
+            "code": "TH"
+        },
+        "model": "custom_user.country",
+        "pk": "Thailand"
+    },
+    {
+        "fields": {
+            "code": "TL"
+        },
+        "model": "custom_user.country",
+        "pk": "Timor-Leste"
+    },
+    {
+        "fields": {
+            "code": "TG"
+        },
+        "model": "custom_user.country",
+        "pk": "Togo"
+    },
+    {
+        "fields": {
+            "code": "TK"
+        },
+        "model": "custom_user.country",
+        "pk": "Tokelau"
+    },
+    {
+        "fields": {
+            "code": "TO"
+        },
+        "model": "custom_user.country",
+        "pk": "Tonga"
+    },
+    {
+        "fields": {
+            "code": "TT"
+        },
+        "model": "custom_user.country",
+        "pk": "Trinidad and Tobago"
+    },
+    {
+        "fields": {
+            "code": "TN"
+        },
+        "model": "custom_user.country",
+        "pk": "Tunisia"
+    },
+    {
+        "fields": {
+            "code": "TR"
+        },
+        "model": "custom_user.country",
+        "pk": "Turkey"
+    },
+    {
+        "fields": {
+            "code": "TM"
+        },
+        "model": "custom_user.country",
+        "pk": "Turkmenistan"
+    },
+    {
+        "fields": {
+            "code": "TC"
+        },
+        "model": "custom_user.country",
+        "pk": "Turks and Caicos Islands"
+    },
+    {
+        "fields": {
+            "code": "TV"
+        },
+        "model": "custom_user.country",
+        "pk": "Tuvalu"
+    },
+    {
+        "fields": {
+            "code": "UG"
+        },
+        "model": "custom_user.country",
+        "pk": "Uganda"
+    },
+    {
+        "fields": {
+            "code": "UA"
+        },
+        "model": "custom_user.country",
+        "pk": "Ukraine"
+    },
+    {
+        "fields": {
+            "code": "AE"
+        },
+        "model": "custom_user.country",
+        "pk": "United Arab Emirates"
+    },
+    {
+        "fields": {
+            "code": "GB"
+        },
+        "model": "custom_user.country",
+        "pk": "United Kingdom"
+    },
+    {
+        "fields": {
+            "code": "US"
+        },
+        "model": "custom_user.country",
+        "pk": "United States"
+    },
+    {
+        "fields": {
+            "code": "UM"
+        },
+        "model": "custom_user.country",
+        "pk": "United States Minor Outlying Islands"
+    },
+    {
+        "fields": {
+            "code": "UY"
+        },
+        "model": "custom_user.country",
+        "pk": "Uruguay"
+    },
+    {
+        "fields": {
+            "code": "UZ"
+        },
+        "model": "custom_user.country",
+        "pk": "Uzbekistan"
+    },
+    {
+        "fields": {
+            "code": "VU"
+        },
+        "model": "custom_user.country",
+        "pk": "Vanuatu"
+    },
+    {
+        "fields": {
+            "code": "VE"
+        },
+        "model": "custom_user.country",
+        "pk": "Venezuela"
+    },
+    {
+        "fields": {
+            "code": "VN"
+        },
+        "model": "custom_user.country",
+        "pk": "Viet Nam"
+    },
+    {
+        "fields": {
+            "code": "VG"
+        },
+        "model": "custom_user.country",
+        "pk": "Virgin Islands, British"
+    },
+    {
+        "fields": {
+            "code": "VI"
+        },
+        "model": "custom_user.country",
+        "pk": "Virgin Islands, U.S."
+    },
+    {
+        "fields": {
+            "code": "WF"
+        },
+        "model": "custom_user.country",
+        "pk": "Wallis and Futuna"
+    },
+    {
+        "fields": {
+            "code": "EH"
+        },
+        "model": "custom_user.country",
+        "pk": "Western Sahara"
+    },
+    {
+        "fields": {
+            "code": "YE"
+        },
+        "model": "custom_user.country",
+        "pk": "Yemen"
+    },
+    {
+        "fields": {
+            "code": "ZM"
+        },
+        "model": "custom_user.country",
+        "pk": "Zambia"
+    },
+    {
+        "fields": {
+            "code": "ZW"
+        },
+        "model": "custom_user.country",
+        "pk": "Zimbabwe"
+    }
+]

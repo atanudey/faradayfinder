@@ -1,0 +1,101 @@
+<div class="profile_img col-md-6 row">
+  <img src="/static/images/user_pic.png" alt="" width="100px">
+  <a class="btn btn-primary" data-toggle="modal" action="" data-target="#upload_profile_photo">Upload Photo</a>
+</div>
+<div class="pro-text col-md-6">
+    <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+    <span>Born on: NA</span>
+</div>
+<div class="profile_links col-md-12 col-sm-12 row">
+    <ul>
+          <li><a href="/accounts/dashboard">Overview</a></li>
+          <li><a href="/my-labs">My Labs</a></li>
+          <li><a href="/my-projects">My Projects</a></li>
+          <li><a href="/my-events">My Events</a></li>
+          <li><a href="/my-equipments">My Equipments</a></li>
+          <li><a href="/accounts/edit-profile">Edit My Profile </a></li>
+{#          <li><a href="#">My Researchs</a></li>#}
+{#          <li><a href="#">My Favorite</a></li>#}
+    </ul>
+</div>
+<!-- Modal -->
+{#<div class="modal fade" id="myModal" role="dialog">#}
+{#    <div class="modal-dialog modal-sm">#}
+{#      <div class="modal-content">#}
+{#        <div class="modal-header">#}
+{#          <button type="button" class="close" data-dismiss="modal">&times;</button>#}
+{#          <h4 class="modal-title">Modal Header</h4>#}
+{#        </div>#}
+{#        <div class="modal-body">#}
+{#          <form class="contact" name="contact" method="post">#}
+{#            <label class="label" for="name">Your Name</label><br>#}
+{#            <input type="text" name="name" class="input-xlarge"><br>#}
+{#            <label class="label" for="email">Your E-mail</label><br>#}
+{#            <input type="email" name="email" class="input-xlarge"><br>#}
+{#            <label class="label" for="message">Enter a Message</label><br>#}
+{#            <textarea name="message" class="input-xlarge"></textarea>#}
+{#           </form>#}
+{#        </div>#}
+{#        <div class="modal-footer">#}
+{#          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#</div>#}
+
+
+<div class="container">
+    <div class="modal fade" id="upload_profile_photo">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="upload_photo" name="upload_photo" enctype="multipart/form-data"  method="post" action="/accounts/upload/profile_photo/">
+                    {% csrf_token %}
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">Upload Photo</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="messages"></div>
+                        <input type="file" name="file" id="file">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{#<script>#}
+{#    $('#upload_profile_photo').submit(function(e) {#}
+{#        var form = $(this);#}
+{#        var formdata = false;#}
+{#        if(window.FormData){#}
+{#            console.log(form)#}
+{#            console.log(form[0])#}
+{#            formdata = new FormData(form[0]);  // $('form')[0]#}
+{#            //  new FormData($('upload_photo')[0]);#}
+{#        }#}
+{#        var formAction = form.attr('action');#}
+{#        $.ajax({#}
+{#            type        : 'POST',#}
+{#            url         : '/accounts/upload/Profile_photo/',#}
+{#            cache       : false,#}
+{#            data        : formdata ? formdata : form.serialize(),#}
+{#            contentType : false,#}
+{#            processData : false,#}
+{#            success: function(response) {#}
+{#                if(response != 'error') {#}
+{#                    //$('#messages').addClass('alert alert-success').text(response);#}
+{#                    // OP requested to close the modal#}
+{#                    $('#myModal').modal('hide');#}
+{#                } else {#}
+{#                    $('#messages').addClass('alert alert-danger').text(response);#}
+{#                }#}
+{#            }#}
+{#        });#}
+{#        e.preventDefault();#}
+{#    });#}
+{#</script>#}

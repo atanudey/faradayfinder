@@ -1,0 +1,43 @@
+{% extends "base_inner.html" %}
+{% block content %}
+<!-- Middle content start here -->
+<div class="container">
+  <div class="row">
+    <div class="login_left col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="login-heading">
+            <h1>My Account</h1>
+          </div>
+        </div>
+        {% include 'common/dashboard_menu.html' %}
+      </div>
+      <div class="login_sec">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="my_profile my_ac_text col-md-4 col-sm-4 ">
+              {% include 'common/dashboard_left_sidebar.html' %}
+            </div>
+            <div class="col-md-8 col-sm-8">
+              <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">edit personal</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">edit resume &amp; network</a></li>
+                    <li role="presentation"><a href="#edit_password_frame" aria-controls="profile" role="tab" data-toggle="tab">change your password</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    {% include 'common/edit_profile_edit_profile.html' %}
+                    {% include 'common/edit_profile_edit_network.html' %}
+                    {% include 'common/edit_profile_edit_password.html' %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
